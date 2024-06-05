@@ -3,9 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- cdn link for font-awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- cdn link for materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    <!-- custom css link -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <title>ReelTalk</title>
 </head>
 <body>
-    Hello World
+    <header> 
+        <!-- top navbar -->
+         <nav class="blue-grey darken-3">
+        <div class="nav-wrapper">
+          <a href="{{ url_for('home') }}" class="brand-logo">ReelTalk</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="">Sign Up</a></li>
+            <li><a href="">Login</a></li>
+            <li><a href="">Review A Movie</a></li>
+            
+          </ul>
+        </div>
+      </nav>
+        <!-- mobile sidenav -->
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="">Sign Up</a></li>
+        <li><a href="">Login</a></li>
+        <li><a href="">Review A Movie</a></li>
+      </ul>
+    </header>
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+    <footer class="page-footer blue-grey darken-3">
+          <div class="footer-copyright">
+          <div class="container">
+          © 2024 Copyright Text
+           </div>
+        </div>
+      </footer>
+
+    <!-- script tag for materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- custom js script -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
