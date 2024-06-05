@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="center-align">ReelTalk</h3>
+
+<h1>Search Movies</h1>
+    <form method="post">
+      <input
+        type="text"
+        name="search_query"
+        placeholder="Enter movie title"
+        required
+      />
+      <button type="submit">Search</button>
+    </form>
+{% endblock %}
