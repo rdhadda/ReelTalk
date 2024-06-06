@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="center-align">ReelTalk</h3>
+
+<div class="center-content">
+<div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+            <i class="fa-solid fa-user-large prefix"></i>
+          <input id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>      
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fa-solid fa-envelope prefix"></i>
+              <input id="email" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+          </div>        
+      <div class="row">
+        <div class="input-field col s12">
+            <i class="fa-solid fa-lock prefix"></i>
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+        <div class="row">
+            <div class="col s12 center-align">
+            <button class="btn waves-effect waves-light center-align" type="submit">Sign Up</i>                        
+            </button>
+        </div>
+        </div>
+      </div>    
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}
