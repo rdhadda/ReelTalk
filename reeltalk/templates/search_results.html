@@ -7,18 +7,19 @@
     <a href="/">Back to search</a>
     <div>
       {% for movie in movies %}
-      <div>
+      <a href="{{ url_for('movie_details', movie_id=movie.id) }}">
         <h2>{{ movie.title }}</h2>
         <p>{{ movie.overview }}</p>
         <p>Release Date: {{ movie.release_date }}</p>
         
         {% if movie.backdrop_path %}
-        <img
-          src="https://image.tmdb.org/t/p/w500{{ movie.backdrop_path }}"
-          alt="{{ movie.title }}"
-        />
-      {% endif %}
-        
+          <img class="responsive-img"
+            src="https://image.tmdb.org/t/p/w500{{ movie.backdrop_path }}"
+            alt="{{ movie.title }}"
+          />
+        {% endif %}
+      </a>
+            
       </div>
       {% endfor %}
     </div>
