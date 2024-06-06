@@ -7,3 +7,25 @@ body {
   main {
     flex: 1 0 auto;
   }
+
+  a {
+    text-decoration: none; 
+    color: black; 
+  }
+
+  .responsive-img {
+    max-width: 100%; 
+    height: auto; 
+  }
+
+  .tmbd-image{
+    max-width: 10rem;
+    height: auto;
+  }
+
+  .center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
