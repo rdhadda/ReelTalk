@@ -25,3 +25,16 @@ def search_movies():
         else:
             return 'Error: Failed to fetch data from TMDb API'
     return render_template('search_movies.html')
+
+@app.route('/movie/<int:movie_id>', methods=['GET'])
+def movie_details(movie_id):
+    api_key = os.environ.get("API_KEY")
+    url = f'https://api.themoviedb.org/3/movie/{movie_id}'
+    params = {'api_key': api_key}
+    response = requests.get(url, params=params)
+    
+    if response.status_code == 200:
+        movie = response.json()
+        return render_template('review_form.html', movie=movie)
+    else:
+        return 'Error: Failed to fetch movie details from TMDb API'
