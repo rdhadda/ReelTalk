@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Review "{{ movie.title }}"</h1>
+    <img class="responsive-img"
+      src="https://image.tmdb.org/t/p/w500{{ movie.backdrop_path }}"
+      alt="{{ movie.title }}"
+    />
+    <p>{{ movie.overview }}</p>
+    <p>Release Date: {{ movie.release_date }}</p>
+    <form method="post" action="">
+      <input type="hidden" name="movie_id" value="{{ movie.id }}" />
+      <label for="review_text">Your Review:</label>
+      <textarea
+        name="review_text"
+        id="review_text"
+        rows="4"
+        required
+      ></textarea>
+      <button type="submit">Submit Review</button>
+    </form>
+    <a href="/">Back to search</a>
+{% endblock %}
