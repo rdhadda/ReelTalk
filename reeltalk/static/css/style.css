@@ -29,3 +29,7 @@ body {
     align-items: center;
     height: 60vh;
 }
+
+.margin-left{
+  margin-left: 0.5rem;
+}
