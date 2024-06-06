@@ -15,7 +15,7 @@ def search_movies():
         search_query = request.form['search_query']
         api_key = os.environ.get("API_KEY")
         url = 'https://api.themoviedb.org/3/search/movie'
-        params = {'api_key': api_key, 'query': search_query}
+        params = {'api_key': api_key, 'query': search_query,'include_adult': False }
         response = requests.get(url, params=params)
         
         if response.status_code == 200:
@@ -38,3 +38,7 @@ def movie_details(movie_id):
         return render_template('review_form.html', movie=movie)
     else:
         return 'Error: Failed to fetch movie details from TMDb API'
+
+@app.route('/sign_up', methods=['GET', 'POST'])
+def sign_up():
+    return render_template('sign_up.html')
