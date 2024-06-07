@@ -1,22 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Review "{{ movie.title }}"</h1>
-    <img class="responsive-img"
-      src="https://image.tmdb.org/t/p/w500{{ movie.backdrop_path }}"
-      alt="{{ movie.title }}"
-    />
-    <p>{{ movie.overview }}</p>
-    <p>Release Date: {{ movie.release_date }}</p>
-    <form method="post" action="">
-      <input type="hidden" name="movie_id" value="{{ movie.id }}" />
-      <label for="review_text">Your Review:</label>
-      <textarea
-        name="review_text"
-        id="review_text"
-        rows="4"
-        required
-      ></textarea>
-      <button type="submit">Submit Review</button>
-    </form>
-    <a href="/">Back to search</a>
+<h1 class="text-center"> Review "{{ movie.title }}"</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+      <div class="card border-0 shadow">
+        <div class="card-body">
+          <img src="https://image.tmdb.org/t/p/w500{{ movie.backdrop_path }}" class="card-img-top mb-3" alt="{{ movie.title }}">
+          <h5 class="card-title">{{ movie.title }}</h5>
+          <p class="card-text">{{ movie.overview }}</p>
+          <form method="post" action="">
+            <input type="hidden" name="movie_id" value="{{ movie.id }}">
+            <div class="mb-3">
+              <label for="review_text" class="form-label">Your Review:</label>
+              <textarea class="form-control" name="review_text" id="review_text" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Review</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

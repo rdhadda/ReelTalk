@@ -1,16 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">ReelTalk</h3>
+<h3 class="text-center pt-3">ReelTalk</h3>
 
-<h1>Search For A Movie</h1> <h6>powered by <img class="tmbd-image" src="{{ url_for('static', filename='img/tmbd-logo.png') }}" alt="Image"></h6>
-    <form method="post">
-      <input
-        type="text"
-        name="search_query"
-        placeholder="Enter movie title"
-        required
-      />
-      <button type="submit">Search</button>
-    </form>
+
+<div class="center-content">
+  <div class="row">
+      <div class="col-12 text-center mb-3">
+          <h1>Search For A Movie</h1>
+      </div>
+      <div class="col-12 text-center mb-3">
+          <h6>powered by <img class="tmbd-image" src="{{ url_for('static', filename='img/tmbd-logo.png') }}" alt="Image"></h6>
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+          <form method="post" class="form-inline">
+              <div class="input-group">
+                  <input type="text" class="form-control" name="search_query" placeholder="Enter movie title" required>
+                  <div class="input-group-append">
+                      <button type="submit" class="btn btn-primary margin-left">Search</button>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+
+
+
 {% endblock %}
