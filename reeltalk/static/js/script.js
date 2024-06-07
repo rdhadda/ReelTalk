@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let sidenav = document.querySelectorAll('.sidenav');
-    M.Sidenav.init(sidenav);
-
-    
-    let tooltip = document.querySelectorAll('.tooltipped');
-    M.Tooltip.init(tooltip);
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  });
     
   });
