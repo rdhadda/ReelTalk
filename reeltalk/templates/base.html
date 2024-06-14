@@ -12,25 +12,27 @@
     <title>ReelTalk</title>
 </head>
 <body>
+ 
 
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-body" data-bs-theme="dark">
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-body bg-custom">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">ReelTalk</a>
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+          <img class="nav-logo" src="{{ url_for('static', filename='img/reeltalk-high-res.png') }}" alt="">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">            
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('home') }}">Home</a>
-            </li> 
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('search_movies') }}">Review A Movie</a>
-            </li>     
-     
+            </li>
           </ul>
-         </div>
+        </div>
       </div>
     </nav>
 
@@ -57,7 +59,7 @@
         {% endblock %}
     </main>
 
-    <footer class="bg-dark text-white mt-5">
+    <footer class="bg-custom text-white mt-5">
       <div class="container">
           <div class="row">
               <div class="col-md-6">
