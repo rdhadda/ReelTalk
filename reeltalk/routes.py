@@ -2,6 +2,7 @@ import os
 import requests
 from flask import render_template, request, redirect, url_for, flash
 from reeltalk import app, db
+from reeltalk.models import User, Movie, Review
 
 
 
