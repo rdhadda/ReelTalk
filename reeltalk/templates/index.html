@@ -1,17 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="text-center pt-3">ReelTalk</h3>
+
+<img class="mx-auto d-block pt-4 logo" src="{{ url_for('static', filename='img/reeltalk-high-res.png') }}" alt="">
+
 
 <div class="center-content">
 <form method="POST">
     <div class="mb-3">
       <label for="email" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="email">      
+      <input type="email" class="form-control" id="email" name="email">      
     </div>
     <div class="mb-3">
       <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password">
+      <input type="password" class="form-control" id="password" name="password">
     </div>
     <button type="submit" class="btn btn-primary">Login<i class="fa-solid fa-arrow-right-to-bracket margin-left"></i></button>
     <a class="btn btn-primary" href="{{ url_for('sign_up') }}">Sign Up <i class="fa-solid fa-user-plus"></i></a>  
