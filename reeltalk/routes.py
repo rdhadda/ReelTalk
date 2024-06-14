@@ -5,7 +5,7 @@ from reeltalk import app, db
 
 
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def home():
     return render_template("index.html")
 
@@ -46,4 +46,21 @@ def movie_details(movie_id):
 
 @app.route('/sign_up', methods=['GET', 'POST'])
 def sign_up():
+    if request.method == 'POST':
+        first_name = request.form.get('firstName')
+        last_name = request.form.get('lastName')
+        email = request.form.get('email')
+        password1 = request.form.get('password1')
+        password2 = request.form.get('password2')
+
+        if len(first_name) < 2:
+            flash('First name must be more than two characters long', category='error')
+        elif len(email) < 4:
+            flash('Email must be more than 4 characters long', category='error')
+        elif password1 != password2:
+            flash('Passwords do not match', category='error')
+        elif len(password1) < 7 or len(password1) > 20:
+            flash('Password doesn\'t match the right criteria', category='error')
+        
+
     return render_template('sign_up.html')
