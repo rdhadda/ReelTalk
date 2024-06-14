@@ -1,29 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="text-center pt-3">ReelTalk</h3>
+<img class="mx-auto d-block pt-4 logo" src="{{ url_for('static', filename='img/reeltalk-high-res.png') }}" alt="">
 
 <div class="center-content">
-<form class="row g-3">
+<form class="row g-3" method="POST">
   <div class="col-md-6">
     <i class="fa-solid fa-user-large"></i>
-    <label for="first_name" class="form-label">First Name</label>
-    <input type="text" class="form-control" id="first_name">
+    <label for="firstName" class="form-label">First Name</label>
+    <input type="text" class="form-control" id="firstName" name="firstName">
   </div>
   <div class="col-md-6">
     <i class="fa-solid fa-user-large"></i>
-    <label for="last_name" class="form-label">Last Name</label>
-    <input type="text" class="form-control" id="last_name">
-  </div>
-  <div class="col-12">
-    <i class="fa-solid fa-lock"></i>
-    <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control" id="password">
+    <label for="lastName" class="form-label">Last Name</label>
+    <input type="text" class="form-control" id="lastName" name="lastName">
   </div>
   <div class="col-12">
     <i class="fa-solid fa-envelope"></i>
     <label for="email" class="form-label">Email</label>
-    <input type="email" class="form-control" id="email">
+    <input type="email" class="form-control" id="email" name="email">
+  </div>
+  <div class="col-12">
+    <i class="fa-solid fa-lock"></i>
+    <label for="password1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password1" name="password1" aria-describedby="passwordHelpBlock">
+    <div id="passwordHelpBlock" class="form-text">
+      Your password must be 8-20 characters long
+    </div>
+  </div>
+  <div class="col-12">
+    <i class="fa-solid fa-lock"></i>
+    <label for="password2" class="form-label"> Confirm Password</label>
+    <input type="password" class="form-control" id="password2" name="password2">
   </div>    
   <div class="col-12">
     <button type="submit" class="btn btn-primary">Sign Up</button>
