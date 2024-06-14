@@ -27,9 +27,28 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh;
+    height: 50vh;
 }
 
 .margin-left{
   margin-left: 0.5rem;
+}
+
+.bg-custom{
+  background-color: #eeeeee;
+}
+
+.nav-logo{
+  width: 9rem;
+  height: auto;
+}
+
+.logo{
+  max-width: 30%;
+  height: auto;
+}
+
+.review-logo{
+  max-width: 100%;
+  height: auto;
 }
