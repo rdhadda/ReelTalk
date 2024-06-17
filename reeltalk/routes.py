@@ -3,11 +3,29 @@ import requests
 from flask import render_template, request, redirect, url_for, flash
 from reeltalk import app, db
 from reeltalk.models import User, Movie, Review
+from flask_login import login_user, logout_user, login_required, current_user
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
+    if request.method=='POST':
+        email = request.form.get(email)
+        password = request.form.get(password)
+
+        user = User.query.filter_by(email=email).first()
+        if user:
+            if check_password_hash(user.password, password):
+                flash('Succesful Login', category=success)
+                login_user(user, remember=True)
+                return redirect(url_for(search_movies))
+            else:
+                flash('Incorrect Password', category=error)
+        else:
+            flash('Email doesn\'t exist', category=error)
+
     return render_template("index.html")
 
 @app.route('/search_movies', methods=['GET', 'POST'])
@@ -53,6 +71,8 @@ def sign_up():
         email = request.form.get('email')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
+    
+        email_exists = User.query.filter_by(email=email).first()
 
         if len(first_name) < 2:
             flash('First name must be more than two characters long', category='error')
@@ -61,7 +81,22 @@ def sign_up():
         elif password1 != password2:
             flash('Passwords do not match', category='error')
         elif len(password1) < 7 or len(password1) > 20:
-            flash('Password doesn\'t match the right criteria', category='error')
+            flash('Password doesn\'t match the right criteria', category='error')            
+        elif email_exists:
+            flash('Account Already Exists', category='error')
+        else:
+            new_user = User(first_name=first_name, last_name=last_name, email=email, password=generate_password_hash(password1, method='sha256'))
+            db.session.add(new_user)
+            db.session.commit()
+            flash('User Created!')
+            return redirect(url_for(home))                        
         
 
     return render_template('sign_up.html')
+
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user
+    return redirect(url_for(home))
