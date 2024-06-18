@@ -6,29 +6,27 @@ from reeltalk.models import User, Movie, Review
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
-
-
-
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    if request.method=='POST':
-        email = request.form.get(email)
-        password = request.form.get(password)
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
 
         user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
-                flash('Succesful Login', category=success)
+                flash('Successful Login', category='success')
                 login_user(user, remember=True)
-                return redirect(url_for(search_movies))
+                return redirect(url_for('your_reviews'))
             else:
-                flash('Incorrect Password', category=error)
+                flash('Incorrect Password', category='error')
         else:
-            flash('Email doesn\'t exist', category=error)
+            flash('Email doesn\'t exist', category='error')
 
     return render_template("index.html")
 
 @app.route('/search_movies', methods=['GET', 'POST'])
+@login_required
 def search_movies():
     if request.method == 'POST':
         search_query = request.form['search_query']
@@ -49,19 +47,56 @@ def search_movies():
             return redirect(url_for('search_movies'))
     return render_template('search_movies.html')
 
-@app.route('/movie/<int:movie_id>', methods=['GET'])
+@app.route('/movie/<int:movie_id>', methods=['GET', 'POST'])
+@login_required
 def movie_details(movie_id):
+    # Fetch movie details from TMDb API
     api_key = os.environ.get("API_KEY")
     url = f'https://api.themoviedb.org/3/movie/{movie_id}'
     params = {'api_key': api_key}
     response = requests.get(url, params=params)
     
     if response.status_code == 200:
-        movie = response.json()
-        return render_template('review_form.html', movie=movie)
+        movie_data = response.json()
     else:
         flash('Error: Failed to fetch movie details from TMDb API', category='error')
-        return 'Error: Failed to fetch movie details from TMDb API'
+        return redirect(url_for('home'))  # Redirect to home or another page on error
+    
+    # Handle POST request for submitting a review
+    if request.method == 'POST':
+        review_text = request.form.get('review_text')
+
+        if not review_text:
+            flash('Review text cannot be empty', category='error')
+        else:
+            # Check if the movie already exists in the database
+            movie = Movie.query.filter_by(tmdb_id=movie_id).first()
+
+            if not movie:
+                # If movie does not exist in the database, create a new Movie object
+                movie = Movie(
+                    tmdb_id=movie_data['id'],
+                    title=movie_data['title'],
+                    overview=movie_data['overview'],
+                    release_date=movie_data['release_date'],
+                    backdrop_path=movie_data['backdrop_path']
+                )
+                db.session.add(movie)
+                db.session.commit()
+
+            # Create a new Review object and associate it with the current user and movie
+            new_review = Review(user_id=current_user.id, movie_id=movie.id, review_text=review_text)
+            db.session.add(new_review)
+            db.session.commit()
+            flash('Review Submitted', category='success')
+
+            # Redirect to the same movie details page to avoid resubmission on refresh
+            return redirect(url_for('your_reviews', movie_id=movie_id))
+
+    # Render the movie details page with movie data and review form
+    return render_template('review_form.html', movie=movie_data)
+    
+         
 
 @app.route('/sign_up', methods=['GET', 'POST'])
 def sign_up():
@@ -89,14 +124,27 @@ def sign_up():
             db.session.add(new_user)
             db.session.commit()
             flash('User Created!')
-            return redirect(url_for(home))                        
-        
-
+            return redirect(url_for('home'))                        
     return render_template('sign_up.html')
+
+
+@app.route('/your_reviews')
+@login_required
+def your_reviews():
+    user_reviews = current_user.reviews  # Access reviews via backref
+    return render_template('your_reviews.html', reviews=user_reviews)
+
+@app.route('/movie_reviews')
+@login_required
+def movie_reviews():
+    all_reviews = Review.query.all()
+    return render_template('movie_reviews.html', all_reviews=all_reviews)
+
+
 
 
 @app.route('/logout')
 @login_required
 def logout():
-    logout_user
-    return redirect(url_for(home))
+    logout_user()
+    return redirect(url_for('home'))
