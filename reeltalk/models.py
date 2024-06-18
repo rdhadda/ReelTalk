@@ -11,6 +11,7 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(150), unique=True, nullable=False)
     password = db.Column(db.String(150), nullable=False) 
+    reviews = db.relationship('Review', backref='user', lazy=True, cascade="all, delete")
 
     def __repr__(self):
         return f"#{self.id}|first_name: {self.first_name}| last_name:{self.last_name}| email{self.email}"
