@@ -14,6 +14,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
 db = SQLAlchemy(app)
 
 from reeltalk import routes  # noqa
+from reeltalk.models import User
 
 login_manager = LoginManager()
 login_manager.login_view = "routes.home"
