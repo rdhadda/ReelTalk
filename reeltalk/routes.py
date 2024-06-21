@@ -6,8 +6,8 @@ from reeltalk.models import User, Movie, Review
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
-@app.route("/", methods=['GET', 'POST'])
-def home():
+@app.route("/login", methods=['GET', 'POST'])
+def login():
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
@@ -23,7 +23,26 @@ def home():
         else:
             flash('Email doesn\'t exist', category='error')
 
-    return render_template("index.html")
+    return render_template("login.html")
+
+@app.route("/")
+def home():
+        api_key = os.environ.get("API_KEY")
+        url = 'https://api.themoviedb.org/3/trending/movie/week?'
+        params = {'api_key': api_key, 'include_adult': False}
+        response = requests.get(url, params=params)
+        
+        if response.status_code == 200:
+            tmdb_data = response.json()
+            trending_movies = tmdb_data['results']            
+            if not trending_movies: 
+                flash(f'No movies found', category='error')
+                return redirect(url_for('search_movies'))
+            return render_template('home.html', movies=trending_movies)
+        else:
+            flash('Error: Failed to fetch movie details from TMDb API', category='error')
+            return redirect(url_for('home'))
+
 
 @app.route('/search_movies', methods=['GET', 'POST'])
 @login_required
@@ -84,11 +103,17 @@ def movie_details(movie_id):
                 db.session.add(movie)
                 db.session.commit()
 
-            # Create a new Review object and associate it with the current user and movie
-            new_review = Review(user_id=current_user.id, movie_id=movie.id, review_text=review_text)
-            db.session.add(new_review)
-            db.session.commit()
-            flash('Review Submitted', category='success')
+            # Check if the user has already posted a review in the database. movie_id=movie.id uses the id of the movie from the movie object created/fetched in/from the database
+            existing_review = Review.query.filter_by(user_id=current_user.id, movie_id=movie.id).first()
+            
+            if existing_review:
+                flash('You\'ve already posted a review for this movie', category='error')  
+            else:
+                # Create a new Review object and associate it with the current user and movie
+                new_review = Review(user_id=current_user.id, movie_id=movie.id, review_text=review_text)
+                db.session.add(new_review)
+                db.session.commit()
+                flash('Review Submitted', category='success')
 
             # Redirect to the same movie details page to avoid resubmission on refresh
             return redirect(url_for('your_reviews', movie_id=movie_id))
@@ -139,6 +164,22 @@ def your_reviews():
 def movie_reviews():
     all_reviews = Review.query.all()
     return render_template('movie_reviews.html', all_reviews=all_reviews)
+
+@app.route('/delete_review/<int:review_id>', methods=["GET", "POST"])
+@login_required
+def delete_review(review_id):
+    user_review = Review.query.filter_by(id=review_id).first()
+
+    if not user_review:
+        flash('Review does not exist', category=='error')
+    elif current_user.id != user_review.user_id:
+        flash('You do not have permission to delete this review', category='error')
+    else:
+        db.session.delete(user_review)
+        db.session.commit()
+        flash('Review successfully deleted', category='success')
+    return(redirect(url_for('your_reviews')))
+
 
 
 
