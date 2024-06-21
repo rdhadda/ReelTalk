@@ -4,6 +4,7 @@
 <img class="mx-auto d-block pt-4 pb-4 logo mb-2" src="{{ url_for('static', filename='img/reeltalk-high-res.png') }}" alt="reel-talk-logo">
 
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  {% if all_reviews %}
     <!-- Using Jinja's group by function to associate all user's reviews to one movie title (this creates a tuple which then can be iterated over) -->
     {% set grouped_reviews = all_reviews|groupby('movie.title') %}
     {% for movie_title, reviews in grouped_reviews %}
@@ -24,17 +25,20 @@
             <hr>
             <!-- This is the inner for loop which allows all the reviews which are associated to one movie be shown -->
             {% for review in reviews %}
-              <p class="card-text">Review: {{ review.review_text }}</p>
-              <p class="card-text">Date Created: {{ review.created_at }}</p>
-              <p class="card-text">Created By: {{ review.user.first_name }}</p>
+              <p class="card-text">{{ review.review_text }}</p>
+              <p class="card-text">Date Created: {{ review.created_at.strftime('%d-%m-%y') }}</p>
+              <p class="card-text"><i class="fa-solid fa-user-large"></i> {{ review.user.first_name }}</p>
               <hr>
             {% endfor %}
           </div>
         </div>
       </div>
+    
     {% endfor %}
- 
-
+  {% else %}
+  <div class="mx-auto text mt-5">
+    <p class="text-center">No Reviews</p>
+</div>  
 </div>
-
+{% endif %}
 {% endblock %}
