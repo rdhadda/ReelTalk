@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<img class="mx-auto d-block pt-4 pb-4 logo mb-2" src="{{ url_for('static', filename='img/reeltalk-high-res.png') }}" alt="reel-talk-logo">
+
+<div class="jumbotron">
+  <h1 class="display-4 text-center">Welcome to ReelTalk!</h1>
+  <p class="lead text-center">Discover, Discuss, and Share Your Favorite Movies</p>
+  
+  <p class="text-center">Welcome to ReelTalk, your go-to destination for movie enthusiasts and critics alike! Whether you're looking for the latest blockbuster reviews or want to share your thoughts on timeless classics, ReelTalk is your community hub for all things movies.</p>
+  <h4 class="mb-3 text-center">What You Can Do on ReelTalk:</h4>
+  <ul class="list-unstyled mb-5">
+      <li class="text-center"><strong>Explore Movies:</strong> Browse through a vast collection of movies, from new releases to hidden gems.</li>
+      <li class="text-center"><strong>Leave Reviews:</strong> Share your opinions and insights on movies you've watched.</li>      
+  </ul>
+  {% if current_user.is_authenticated %}    
+  {% else %}
+  <div class="d-flex justify-content-center mb-5">    
+    <a class="btn btn-dark margin-left" href="{{ url_for('sign_up') }}">Sign Up <i class="fa-solid fa-user-plus"></i></a> 
+    <a class="btn btn-dark margin-left" href="{{ url_for('login') }}">Login <i class="fa-solid fa-arrow-right-to-bracket margin-left"></i></a> 
+  </div> 
+  {% endif %}
+</div>
+</div>
+
+<h2 class="text-center mb-3">This Week's Top Trending Movies</h2>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-4">  
+    {% if movies %}
+    <!-- loop to iterate only 12 times, to show the first 12 trending movies -->
+        {% for movie in range(12) %}                          
+                <div class="col">
+                    <div class="card h-100 border-0 shadow">
+                        <img src="{% if movies[movie].backdrop_path %}https://image.tmdb.org/t/p/w500{{movies[movie].backdrop_path }}{% else %}{{ url_for('static', filename='img/tmdb-logo-2.webp') }}{% endif %}" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {% if movies[movie].title|length > 30 %}
+                                    <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ movies[movie].title }}">{{ movies[movie].title|truncate(30) }}...</span>
+                                {% else %}
+                                    {{ movies[movie].title }}
+                                {% endif %}
+                            </h5>
+                        </div>
+                    </div>
+                </div>            
+        {% endfor %}
+    {% else %}
+        <div class="mx-auto text mt-5">
+            <p class="text-center">No trending movies</p>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}
