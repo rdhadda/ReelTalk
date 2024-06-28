@@ -180,12 +180,12 @@ def delete_review(review_id):
         flash('Review successfully deleted', category='success')
     return(redirect(url_for('my_reviews')))
 
-
-
-
-
 @app.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('home'))
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html')
