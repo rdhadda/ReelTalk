@@ -43,6 +43,11 @@ body {
   height: auto;
 }
 
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+  color:  #d72323;
+}
+
 .logo{
   max-width: 30%;
   height: auto;
@@ -55,4 +60,9 @@ body {
 
 .text-red{
   color: #d72323;
+}
+
+footer{
+  font-family: Barrio;
+  padding-top: 1rem;
 }
