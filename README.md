@@ -132,6 +132,34 @@ The website consists of 10 pages. which are extended from a base template.
 
 #### All 10 pages have the following elements in common:
 
-- The title of the webpage ReelTalk. The title also acts as a link back to the homepage.
-- All of the web pages have the same brick wall background image to have a consistent theme throughout.
+- Navbar - The navbar is present on all pages throughout the website. This allows each user to naviagte their way around the website with ease. It consists of the ReelTalk logo on the left hand side and the nav links on the right. The nav links has an active attribute on them and his highlighted in red to show the user which page they're on. Certain nav links are only visible if the user is logged in. 
+
+
+  #### User Logged In
+  #### User Logged Out
+
+- Footer - The footer is also present on each webpage and has links to ReelTalk's social media pages. 
+
+
+### Future Implementations
+
+- Allow a user to update their password.
+- Allow a user to delete their account.
+- Add a movie rating to each movie.
+- Create an Admin account to delete non-appropriate reviews.
+- Allow a user to add a movie if it's not found via the TMDB API.
+
+
+## Accessbility
+
+- Using semantic HTML.
+- Creating sufficient colour contrast throughout the website.
+- Using descriptive alt attributes for images throughout the site.
+
+## Technologies Used
+
+### Languages Used
+
+- HTML, CSS and Javascript, Python
+
 
