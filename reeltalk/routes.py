@@ -186,6 +186,8 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
+
+# 404 error handling taken from: https://www.geeksforgeeks.org/python-404-error-handling-in-flask/
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html')
