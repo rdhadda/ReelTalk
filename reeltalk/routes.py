@@ -17,7 +17,7 @@ def login():
             if check_password_hash(user.password, password):
                 flash('Successful Login', category='success')
                 login_user(user, remember=True)
-                return redirect(url_for('your_reviews'))
+                return redirect(url_for('my_reviews'))
             else:
                 flash('Incorrect Password', category='error')
         else:
@@ -60,11 +60,11 @@ def search_movies():
             if not movies: 
                 flash(f'No movies found for "{search_query}"', category='error')
                 return redirect(url_for('search_movies'))
-            return render_template('search_results.html', movies=movies, search_query=search_query)
+            return render_template('search_results.html', movies=movies, search_query=search_query, active_page='search_movies')
         else:
             flash('Error: Failed to fetch movie details from TMDb API', category='error')
             return redirect(url_for('search_movies'))
-    return render_template('search_movies.html')
+    return render_template('search_movies.html', active_page='search_movies')
 
 @app.route('/movie/<int:movie_id>', methods=['GET', 'POST'])
 @login_required
@@ -115,11 +115,11 @@ def movie_details(movie_id):
                 db.session.commit()
                 flash('Review Submitted', category='success')
 
-            # Redirect to the same movie details page to avoid resubmission on refresh
-            return redirect(url_for('your_reviews', movie_id=movie_id))
+            # Redirect to the my_reviews page to avoid resubmission on refresh
+            return redirect(url_for('my_reviews', movie_id=movie_id))
 
     # Render the movie details page with movie data and review form
-    return render_template('review_form.html', movie=movie_data)
+    return render_template('review_form.html', movie=movie_data, active_page='search_movies')
     
          
 
@@ -153,17 +153,17 @@ def sign_up():
     return render_template('sign_up.html')
 
 
-@app.route('/your_reviews')
+@app.route('/my_reviews')
 @login_required
-def your_reviews():
+def my_reviews():
     user_reviews = current_user.reviews  # Access reviews via backref
-    return render_template('your_reviews.html', reviews=user_reviews)
+    return render_template('my_reviews.html', reviews=user_reviews, active_page='my_reviews')
 
 @app.route('/movie_reviews')
 @login_required
 def movie_reviews():
     all_reviews = Review.query.all()
-    return render_template('movie_reviews.html', all_reviews=all_reviews)
+    return render_template('movie_reviews.html', all_reviews=all_reviews, active_page='movie_reviews')
 
 @app.route('/delete_review/<int:review_id>', methods=["GET", "POST"])
 @login_required
@@ -178,7 +178,7 @@ def delete_review(review_id):
         db.session.delete(user_review)
         db.session.commit()
         flash('Review successfully deleted', category='success')
-    return(redirect(url_for('your_reviews')))
+    return(redirect(url_for('my_reviews')))
 
 
 
