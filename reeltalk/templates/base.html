@@ -28,13 +28,13 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     {% if current_user.is_authenticated %}            
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('movie_reviews') }}">Movie Reviews</a>
+                        <a class="nav-link {% if active_page == 'movie_reviews' %}active{% endif %}" href="{{ url_for('movie_reviews') }}">Movie Reviews</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('your_reviews') }}">Your Reviews</a>
+                        <a class="nav-link {% if active_page == 'my_reviews' %}active{% endif %}" href="{{ url_for('my_reviews') }}">My Reviews</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('search_movies') }}">Review A Movie</a>
+                        <a class="nav-link {% if active_page == 'search_movies' %}active{% endif %}" href="{{ url_for('search_movies') }}">Review A Movie</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
