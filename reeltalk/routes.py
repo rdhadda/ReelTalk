@@ -165,6 +165,28 @@ def movie_reviews():
     all_reviews = Review.query.all()
     return render_template('movie_reviews.html', all_reviews=all_reviews, active_page='movie_reviews')
 
+@app.route('/edit_review/<int:review_id>', methods=["GET", "POST"])
+@login_required
+def edit_review(review_id):
+    user_review = Review.query.filter_by(id=review_id).first()
+
+    if not user_review:
+        flash('Review does not exist', category='error')
+    elif current_user.id != user_review.user_id:
+        flash('You do not have permission to edit this review', category='error')
+    else:
+        if request.method == 'POST':
+            review_text = request.form.get('review_text')
+            if review_text:
+                user_review.review_text = review_text            
+                db.session.commit()
+                flash('Review successfully updated', category='success')
+                return(redirect(url_for('my_reviews')))
+            else:
+                flash('Review text cannot be empty', category='error')
+
+    return render_template('edit_review.html' , review=user_review)
+
 @app.route('/delete_review/<int:review_id>', methods=["GET", "POST"])
 @login_required
 def delete_review(review_id):
