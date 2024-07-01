@@ -43,7 +43,6 @@ def home():
             flash('Error: Failed to fetch movie details from TMDb API', category='error')
             return redirect(url_for('home'))
 
-
 @app.route('/search_movies', methods=['GET', 'POST'])
 @login_required
 def search_movies():
@@ -52,8 +51,7 @@ def search_movies():
         api_key = os.environ.get("API_KEY")
         url = 'https://api.themoviedb.org/3/search/movie'
         params = {'api_key': api_key, 'query': search_query, 'include_adult': False}
-        response = requests.get(url, params=params)
-        
+        response = requests.get(url, params=params)        
         if response.status_code == 200:
             data = response.json()
             movies = data['results']
@@ -73,24 +71,20 @@ def movie_details(movie_id):
     api_key = os.environ.get("API_KEY")
     url = f'https://api.themoviedb.org/3/movie/{movie_id}'
     params = {'api_key': api_key}
-    response = requests.get(url, params=params)
-    
+    response = requests.get(url, params=params)    
     if response.status_code == 200:
         movie_data = response.json()
     else:
         flash('Error: Failed to fetch movie details from TMDb API', category='error')
-        return redirect(url_for('home'))  # Redirect to home or another page on error
-    
+        return redirect(url_for('home'))    
     # Handle POST request for submitting a review
     if request.method == 'POST':
         review_text = request.form.get('review_text')
-
         if not review_text:
             flash('Review text cannot be empty', category='error')
         else:
             # Check if the movie already exists in the database
             movie = Movie.query.filter_by(tmdb_id=movie_id).first()
-
             if not movie:
                 # If movie does not exist in the database, create a new Movie object
                 movie = Movie(
@@ -102,10 +96,8 @@ def movie_details(movie_id):
                 )
                 db.session.add(movie)
                 db.session.commit()
-
             # Check if the user has already posted a review in the database. movie_id=movie.id uses the id of the movie from the movie object created/fetched in/from the database
-            existing_review = Review.query.filter_by(user_id=current_user.id, movie_id=movie.id).first()
-            
+            existing_review = Review.query.filter_by(user_id=current_user.id, movie_id=movie.id).first()            
             if existing_review:
                 flash('You\'ve already posted a review for this movie', category='error')  
             else:
@@ -114,15 +106,11 @@ def movie_details(movie_id):
                 db.session.add(new_review)
                 db.session.commit()
                 flash('Review Submitted', category='success')
-
             # Redirect to the my_reviews page to avoid resubmission on refresh
             return redirect(url_for('my_reviews', movie_id=movie_id))
-
     # Render the movie details page with movie data and review form
-    return render_template('review_form.html', movie=movie_data, active_page='search_movies')
-    
+    return render_template('review_form.html', movie=movie_data, active_page='search_movies')  
          
-
 @app.route('/sign_up', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
@@ -130,10 +118,8 @@ def sign_up():
         last_name = request.form.get('lastName')
         email = request.form.get('email')
         password1 = request.form.get('password1')
-        password2 = request.form.get('password2')
-    
+        password2 = request.form.get('password2')    
         email_exists = User.query.filter_by(email=email).first()
-
         if len(first_name) < 2:
             flash('First name must be more than two characters long', category='error')
         elif len(email) < 4:
@@ -152,7 +138,6 @@ def sign_up():
             return redirect(url_for('home'))                        
     return render_template('sign_up.html')
 
-
 @app.route('/my_reviews')
 @login_required
 def my_reviews():
@@ -169,7 +154,6 @@ def movie_reviews():
 @login_required
 def edit_review(review_id):
     user_review = Review.query.filter_by(id=review_id).first()
-
     if not user_review:
         flash('Review does not exist', category='error')
     elif current_user.id != user_review.user_id:
@@ -184,14 +168,12 @@ def edit_review(review_id):
                 return(redirect(url_for('my_reviews')))
             else:
                 flash('Review text cannot be empty', category='error')
-
     return render_template('edit_review.html' , review=user_review)
 
 @app.route('/delete_review/<int:review_id>', methods=["GET", "POST"])
 @login_required
 def delete_review(review_id):
     user_review = Review.query.filter_by(id=review_id).first()
-
     if not user_review:
         flash('Review does not exist', category=='error')
     elif current_user.id != user_review.user_id:
@@ -207,8 +189,7 @@ def delete_review(review_id):
 def logout():
     logout_user()
     return redirect(url_for('home'))
-
-
+    
 # 404 error handling taken from: https://www.geeksforgeeks.org/python-404-error-handling-in-flask/
 @app.errorhandler(404)
 def page_not_found(e):

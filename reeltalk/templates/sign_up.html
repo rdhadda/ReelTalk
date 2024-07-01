@@ -1,27 +1,32 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <!-- form to allow a user to sign up to ReelTalk -->
 <form class="row g-3 mt-3" method="POST">
   <div class="col-md-6">
     <i class="fa-solid fa-user-large"></i>
     <label for="firstName" class="form-label">First Name</label>
-    <input type="text" class="form-control" id="firstName" name="firstName">
+    <input type="text" class="form-control" id="firstName" name="firstName" />
   </div>
   <div class="col-md-6">
     <i class="fa-solid fa-user-large"></i>
     <label for="lastName" class="form-label">Last Name</label>
-    <input type="text" class="form-control" id="lastName" name="lastName">
+    <input type="text" class="form-control" id="lastName" name="lastName" />
   </div>
   <div class="col-12">
     <i class="fa-solid fa-envelope"></i>
     <label for="email" class="form-label">Email</label>
-    <input type="email" class="form-control" id="email" name="email">
+    <input type="email" class="form-control" id="email" name="email" />
   </div>
   <div class="col-12">
     <i class="fa-solid fa-lock"></i>
     <label for="password1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="password1" name="password1" aria-describedby="passwordHelpBlock">
+    <input
+      type="password"
+      class="form-control"
+      id="password1"
+      name="password1"
+      aria-describedby="passwordHelpBlock"
+    />
     <div id="passwordHelpBlock" class="form-text">
       Your password must be 8-20 characters long
     </div>
@@ -29,13 +34,16 @@
   <div class="col-12">
     <i class="fa-solid fa-lock"></i>
     <label for="password2" class="form-label"> Confirm Password</label>
-    <input type="password" class="form-control" id="password2" name="password2">
-  </div>    
+    <input
+      type="password"
+      class="form-control"
+      id="password2"
+      name="password2"
+    />
+  </div>
   <div class="col-12">
     <button type="submit" class="btn btn-dark">Sign Up</button>
   </div>
 </form>
-
-
 
 {% endblock %}

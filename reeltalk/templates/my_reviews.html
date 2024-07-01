@@ -1,65 +1,102 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
-<img class="mx-auto d-block pt-4 pb-4 logo mb-2" src="{{ url_for('static', filename='img/reeltalk-high-res.png') }}" alt="reel-talk-logo">
+<img
+  class="mx-auto d-block pt-4 pb-4 logo mb-2"
+  src="{{ url_for('static', filename='img/reeltalk-high-res.png') }}"
+  alt="reel-talk-logo"
+/>
 
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-<!-- if statement to display reviews, if no reviews are available to display then the code moves onto the last else statement  -->
-{% if reviews %}
-<!-- for loop to iterate over a users reviews -->
+  <!-- if statement to display reviews, if no reviews are available to display then the code moves onto the last else statement  -->
+  {% if reviews %}
+  <!-- for loop to iterate over a users reviews -->
   {% for review in reviews %}
   <div class="col">
-      <div class="card h-100 border-0 shadow">         
-            <img src="{% if review.movie.backdrop_path %}https://image.tmdb.org/t/p/w500{{ review.movie.backdrop_path }}{% else %}{{ url_for('static', filename='img/tmdb-logo-2.webp') }}{% endif %}" class="card-img-top" alt="">
-        <div class="card-body">
-              <h5 class="card-title">
-                  {% if review.movie.title|length > 30 %}
-                  <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ review.movie.title }}">{{ review.movie.title|truncate(30) }}...</span>
-                  {% else %}
-                  {{ review.movie.title }}
-                  {% endif %}
-              </h5>
-              <p class="card-text">Release Date: {{ review.movie.release_date }} </p>
-              <p class="card-text">My Review: {{ review.review_text }}</p>
-              <p class="card-text">Date Created: {{ review.created_at.strftime('%d-%m-%y') }}</p>
-              {% if current_user.id == review.user_id %}
-              <a class="btn btn-dark"  href="{{ url_for('edit_review', review_id=review.id) }}"><i class="fa-solid fa-pen-to-square"></i></a>            
-              <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#deleteReviewModal">
-                <i class="fa-solid fa-trash"></i>
-              </button>           
-              {% endif %}
-          </div>
+    <div class="card h-100 border-0 shadow">
+      <img
+        src="{% if review.movie.backdrop_path %}https://image.tmdb.org/t/p/w500{{ review.movie.backdrop_path }}{% else %}{{ url_for('static', filename='img/tmdb-logo-2.webp') }}{% endif %}"
+        class="card-img-top"
+        alt=""
+      />
+      <div class="card-body">
+        <h5 class="card-title">
+          {% if review.movie.title|length > 30 %}
+          <span
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            title="{{ review.movie.title }}"
+            >{{ review.movie.title|truncate(30) }}...</span
+          >
+          {% else %} {{ review.movie.title }} {% endif %}
+        </h5>
+        <p class="card-text">Release Date: {{ review.movie.release_date }}</p>
+        <p class="card-text">My Review: {{ review.review_text }}</p>
+        <p class="card-text">
+          Date Created: {{ review.created_at.strftime('%d-%m-%y') }}
+        </p>
+        {% if current_user.id == review.user_id %}
+        <a
+          class="btn btn-dark"
+          href="{{ url_for('edit_review', review_id=review.id) }}"
+          ><i class="fa-solid fa-pen-to-square"></i
+        ></a>
+        <button
+          type="button"
+          class="btn btn-dark"
+          data-bs-toggle="modal"
+          data-bs-target="#deleteReviewModal"
+        >
+          <i class="fa-solid fa-trash"></i>
+        </button>
+        {% endif %}
       </div>
+    </div>
   </div>
 
   <!-- Modal to confirm whether the logged in user wants to delete their review -->
-<div class="modal fade" id="deleteReviewModal" tabindex="-1" aria-labelledby="deleteReviewModal" aria-hidden="true">
+  <div
+    class="modal fade"
+    id="deleteReviewModal"
+    tabindex="-1"
+    aria-labelledby="deleteReviewModal"
+    aria-hidden="true"
+  >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Delete {{ review.movie.title }} Review</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            Delete {{ review.movie.title }} Review
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
         <div class="modal-body">
-            Are you sure you would like to delete this review? This can't be undone.
+          Are you sure you would like to delete this review? This can't be
+          undone.
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-          <a href="{{ url_for('delete_review', review_id=review.id) }}" class="btn btn-dark"><i class="fa-solid fa-trash"></i></a>          
+          <button type="button" class="btn btn-dark" data-bs-dismiss="modal">
+            Close
+          </button>
+          <a
+            href="{{ url_for('delete_review', review_id=review.id) }}"
+            class="btn btn-dark"
+            ><i class="fa-solid fa-trash"></i
+          ></a>
         </div>
       </div>
     </div>
   </div>
 
-  {% endfor %}
-  {% else %}
-  
-    <div class="mx-auto text mt-5">
-        <p class="text-center">You have not submitted any reviews yet.</p>
-    </div>
-  
+  {% endfor %} {% else %}
+
+  <div class="mx-auto text mt-5">
+    <p class="text-center">You have not submitted any reviews yet.</p>
   </div>
-  
-      
-  {% endif %}
-{% endblock %}
+</div>
+
+{% endif %} {% endblock %}

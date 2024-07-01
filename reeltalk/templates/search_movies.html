@@ -1,29 +1,42 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
-<img class="mx-auto d-block pt-4 logo" src="{{ url_for('static', filename='img/reeltalk-high-res.png') }}" alt="">
+<img
+  class="mx-auto d-block pt-4 logo"
+  src="{{ url_for('static', filename='img/reeltalk-high-res.png') }}"
+  alt=""
+/>
 
-  <!-- form to allow a user to search for a movie  -->
+<!-- form to allow a user to search for a movie  -->
 <div class="row mt-5">
-      <div class="col-12 text-center mb-3">
-          <h1>Search For A Movie</h1>
-      </div>
-      <div class="col-12 text-center mb-3">
-          <h6>powered by <img class="tmbd-image" src="{{ url_for('static', filename='img/tmbd-logo.png') }}" alt="Image"></h6>
-      </div>
-      <div class="col-12 d-flex justify-content-center">
-          <form method="post" class="form-inline">
-              <div class="input-group">
-                  <input type="text" class="form-control" name="search_query" placeholder="Enter movie title" required>
-                  <div class="input-group-append">
-                      <button type="submit" class="btn btn-dark margin-left">Search</button>
-                  </div>
-              </div>
-          </form>
-      </div>
+  <div class="col-12 text-center mb-3">
+    <h1>Search For A Movie</h1>
   </div>
-
-
-
+  <div class="col-12 text-center mb-3">
+    <h6>
+      powered by
+      <img
+        class="tmbd-image"
+        src="{{ url_for('static', filename='img/tmbd-logo.png') }}"
+        alt="Image"
+      />
+    </h6>
+  </div>
+  <div class="col-12 d-flex justify-content-center">
+    <form method="post" class="form-inline">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          name="search_query"
+          placeholder="Enter movie title"
+          required
+        />
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-dark margin-left">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 
 {% endblock %}
