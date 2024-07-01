@@ -4,7 +4,9 @@
 <img class="mx-auto d-block pt-4 pb-4 logo mb-2" src="{{ url_for('static', filename='img/reeltalk-high-res.png') }}" alt="reel-talk-logo">
 
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+<!-- if statement to display reviews, if no reviews are available to display then the code moves onto the last else statement  -->
 {% if reviews %}
+<!-- for loop to iterate over a users reviews -->
   {% for review in reviews %}
   <div class="col">
       <div class="card h-100 border-0 shadow">         
@@ -30,7 +32,7 @@
       </div>
   </div>
 
-  <!-- Modal -->
+  <!-- Modal to confirm whether the logged in user wants to delete their review -->
 <div class="modal fade" id="deleteReviewModal" tabindex="-1" aria-labelledby="deleteReviewModal" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">

@@ -4,6 +4,7 @@
 
 <img class="mx-auto d-block pt-4 pb-4 logo mb-2" src="{{ url_for('static', filename='img/reeltalk-high-res.png') }}" alt="reel-talk-logo">
 
+<!-- introduction to what ReelTalk is -->
 <div class="jumbotron">
   <h1 class="display-4 text-center">Welcome to ReelTalk!</h1>
   <p class="lead text-center">Discover, Discuss, and Share Your Favorite Movies</p>
@@ -14,6 +15,7 @@
       <li class="text-center"><strong>Explore Movies:</strong> Browse through a vast collection of movies, from new releases to hidden gems.</li>
       <li class="text-center"><strong>Leave Reviews:</strong> Share your opinions and insights on movies you've watched.</li>      
   </ul>
+  <!-- if the user is logged in then the below links won't be displayed -->
   {% if current_user.is_authenticated %}    
   {% else %}
   <div class="d-flex justify-content-center mb-5">    
@@ -26,6 +28,7 @@
 
 <h2 class="text-center mb-3">This Week's Top Trending Movies</h2>
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-6 g-4">  
+    <!-- if statement to display movies, if no movies are available to display then the code moves onto the else statement  -->
     {% if movies %}
     <!-- loop to iterate only 12 times, to show the first 12 trending movies -->
         {% for movie in range(12) %}                          
