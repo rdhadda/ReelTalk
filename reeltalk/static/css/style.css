@@ -34,10 +34,6 @@ body {
   margin-left: 0.5rem;
 }
 
-.bg-custom{
-  background-color: #eeeeee;
-}
-
 .nav-logo{
   width: 9rem;
   height: auto;
@@ -65,4 +61,8 @@ body {
 footer{
   font-family: Barrio;
   padding-top: 1rem;
+}
+
+.social-icon{
+  font-size: 1.5rem;
 }
