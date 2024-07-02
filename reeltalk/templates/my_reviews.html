@@ -44,7 +44,7 @@
           type="button"
           class="btn btn-dark"
           data-bs-toggle="modal"
-          data-bs-target="#deleteReviewModal"
+          data-bs-target="#deleteReviewModal-{{ review.id }}"
         >
           <i class="fa-solid fa-trash"></i>
         </button>
@@ -56,15 +56,15 @@
   <!-- Modal to confirm whether the logged in user wants to delete their review -->
   <div
     class="modal fade"
-    id="deleteReviewModal"
+    id="deleteReviewModal-{{ review.id }}"
     tabindex="-1"
-    aria-labelledby="deleteReviewModal"
+    aria-labelledby="deleteReviewModalLabel-{{ review.id }}"
     aria-hidden="true"
   >
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">
+          <h1 class="modal-title fs-5" id="deleteReviewModalLabel-{{ review.id }}">
             Delete {{ review.movie.title }} Review
           </h1>
           <button
