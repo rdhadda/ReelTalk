@@ -39,7 +39,6 @@ body {
   height: auto;
 }
 
-
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
   color:  #d72323;
 }
@@ -56,6 +55,8 @@ body {
 
 .text-red{
   color: #d72323;
+  font-weight: 600;
+  letter-spacing: 2px;
 }
 
 footer{
