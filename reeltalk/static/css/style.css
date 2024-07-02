@@ -40,7 +40,9 @@ body {
 }
 
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
-  color:  #d72323;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .logo{
@@ -61,10 +63,14 @@ body {
 }
 
 footer{
-  font-family: Barrio;
+  font-family: Barrio, sans-serif;
   padding-top: 1rem;
 }
 
 .social-icon{
   font-size: 1.5rem;
+}
+
+.fa-solid, .fas {
+  margin-right: 5px;
 }
