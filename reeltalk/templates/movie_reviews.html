@@ -51,9 +51,11 @@
     </div>
   </div>
 
-  {% endfor %} {% else %}
+  {% endfor %}
+ {% else %}
   <div class="mx-auto text mt-5">
     <p class="text-center">No Reviews</p>
   </div>
+ {% endif %}
 </div>
-{% endif %} {% endblock %}
+{% endblock %}
