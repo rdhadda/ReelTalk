@@ -3,6 +3,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
+
 if os.path.exists("env.py"):
     import env  # noqa
 
@@ -15,9 +16,11 @@ db = SQLAlchemy(app)
 from reeltalk import routes  # noqa
 from reeltalk.models import User
 
+
 login_manager = LoginManager()
 login_manager.login_view = "routes.home"
 login_manager.init_app(app)
+
 
 @login_manager.user_loader
 def load_user(id):
