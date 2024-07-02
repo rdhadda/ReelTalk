@@ -39,10 +39,20 @@ body {
   height: auto;
 }
 
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+.nav-link{
+  font-family: Barrio, sans-serif;
   color: white;
-  font-weight: bold;
-  letter-spacing: 2px;
+  font-size: 1.5rem;
+}
+
+.nav-link:focus, .nav-link:hover {
+  color: red;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+  color: red;
+  font-size: 1.5rem;  
+   
 }
 
 .logo{
