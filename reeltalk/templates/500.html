@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block content %}
+
+<img
+  class="mx-auto d-block pt-4 logo"
+  src="{{ url_for('static', filename='img/reeltalk-high-res.png') }}"
+  alt=""
+/>
+
+<!-- 500 internal server error message with link back to the homepage -->
+<div class="mt-5">
+  <h1 class="text-center d-block">500 - Internal Server Error</h1>
+  <p class="d-block text-center">
+    Something went wrong on our end. Please try again later.
+  </p>
+  <div class="d-flex justify-content-center">
+    <a class="btn btn-dark text-center" href="{{ url_for('home') }}">Go Home</a>
+  </div>
+</div>
+
+{% endblock %}
