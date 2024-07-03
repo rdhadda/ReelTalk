@@ -58,7 +58,7 @@ I took the opportunity to utilize Lighthouse within Chrome Developer Tools. This
 #### Desktop Testing
 
 <details>
-<summary>Lighthouse Desktop Testing</summary>
+<summary>Lighthouse Desktop Testing Screen Shots</summary>
 
   #### Home Page
 
@@ -105,7 +105,7 @@ I took the opportunity to utilize Lighthouse within Chrome Developer Tools. This
 #### Mobile Testing
 
 <details>
-<summary>Lighthouse Mobile Testing</summary>
+<summary>Lighthouse Mobile Testing Screen Shots</summary>
 
   #### Home Page
 
@@ -151,13 +151,68 @@ I took the opportunity to utilize Lighthouse within Chrome Developer Tools. This
 
 ### Wave Testing
 
-- [Index Page HTML](documentation/wave-index.html.png)
-- [Game Page HTML](documentation/wave.game.html.png)
-- [Score Page HTML](documentation/wave-score.html.png)
-- [404 Page HTML](documentation/wave-404.html.png)
+<details>
+<summary>Wave Testing Screen Shots</summary>
 
-#### CI Python Linter
+  #### Home Page
 
+![Home Page](reeltalk/static/documents/wave-home-page.png)
+
+  #### Login Page
+
+ ![Login Page](reeltalk/static/documents/wave-login-page.png)
+
+ #### Sign Up Page
+
+ ![Sign Up Page](reeltalk/static/documents/wave-sign-up-page.png)
+ 
+ #### Search Page
+ 
+ ![Search Page](reeltalk/static/documents/wave-search-movies.png)
+ 
+  #### Add Review Page
+ 
+ ![Add Review Page](reeltalk/static/documents/wave-review.png)
+ 
+ #### Edit Review Page
+ 
+ ![Edit Review Page](reeltalk/static/documents/wave-edit-review.png)
+
+ #### Delete Review Page
+ 
+ ![Delete Review Page](reeltalk/static/documents//wave-delete-review.png)
+  
+ #### My Reviews Page
+ 
+ ![My Reviews Page](reeltalk/static/documents/wave-my-reviews-page.png)
+ 
+ #### Movie Reviews Page
+ 
+ ![Movie Reviews Page](reeltalk/static/documents/wave-movie-reviews-page.png)
+ 
+ #### 404 Page
+ 
+ ![404 Page](reeltalk/static/documents/wave-404.png)
+ 
+ #### 500 Page
+ 
+ ![500 Page](reeltalk/static/documents/wave-404.png)
+
+</details>
+
+### CI Python Linter
+
+### __init__.py
+
+![init.py](reeltalk/static/documents/linter-init.py.png)
+
+### models.py
+
+![models.py](reeltalk/static/documents/linter-models.py.png)
+
+### routes.py
+
+![routes.py](reeltalk/static/documents/linter-routes.py.png)
 
 
 ### Manual Testing
