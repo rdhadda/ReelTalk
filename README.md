@@ -2,14 +2,14 @@
 
 ReelTalk was created as my third milestone project, built using a Flask framework alongside PostgreSQL.
 
-![ReelTalk. Screenshot of website](documentation/am-i-responsive.png)
+![ReelTalk. Screenshot of website](reeltalk/static/documents/reeltalk-am-i-responsive.png)
 
-[View ReelTalk on GitHub Pages](https://rdhadda.github.io/ReelTalk/index.html)
+[View ReelTalk on Heroku](https://reeltalk-rd-86df5744ce6e.herokuapp.com/)
 
 ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/rdhadda/ReelTalk)
 ![GitHub language count](https://img.shields.io/github/languages/count/rdhadda/ReelTalk)
 ![GitHub top language](https://img.shields.io/github/languages/top/rdhadda/ReelTalk?color=red)
-![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Frdhadda.github.io%2FReelTalk%2Findex.html&color=yellow)
+
 
 ## CONTENTS
 
@@ -32,12 +32,10 @@ ReelTalk was created as my third milestone project, built using a Flask framewor
   - [Languages Used](#Languages-Used)
   - [Frameworks, Libraries & Programs Used](#frameworks-libraries-and-programs-used)
 
-- [Deployment and Local Development](#deployment--local-development)
-
-  - [Deployment](#Deployment)
-  - [Local Development](#Local-Development)
-    - [How to Fork](#How-to-Fork)
-    - [How to Clone](#How-to-Clone)
+- [Deployment and Local Development](#deployment--local-development)  
+    - [Local Development](#Local-Development)
+    - [Remote Deployment](#remote-deployment-heroku)
+   
 
 - [Testing](#Testing)
 
@@ -53,7 +51,7 @@ ReelTalk was created as my third milestone project, built using a Flask framewor
 
 ## User Experience (UX)
 
-The purpose of the website is to allow users to create an account, search for a movie and leave a review as well as reading other users reviews on movies. The user also has the ability to delete their review. 
+ReelTalk is a website aimed at movie lovers. A user has the ability to search for their desired movie and leave a review, once they have signed up to the website to share with other users. The user also has the ability to modify their existing reviews and delete a review if they choose to do so. 
 
 #### Target Audience
 
@@ -92,12 +90,11 @@ The red, white, and black color scheme is bold and modern, offering a high-contr
 
 Google Fonts was used for the following fonts:
 
-- Barrio is used for the main ReelTalk logo and footer text.
+- Barrio is used for the main ReelTalk logo, nav links and footer text.
 
 ![Typography](reeltalk/static/documents/reeltalk-barrio.png)
 
 - Helvecta is used for the remaining text accross the website.
-
 
 
 ### Imagery
@@ -125,6 +122,7 @@ The website consists of 11 pages. which are extended from a base template.
 - Search Results Page
 - Add Review Page
 - Edit Review Page
+- Delete Review (Modal)
 - My Reviews Page
 - Movie Reviews Page
 - 404 Page
@@ -137,15 +135,15 @@ The website consists of 11 pages. which are extended from a base template.
 
  #### User Logged Out
 
-![Logged-Out](reeltalk/static/documents/reeltalk-nav-logged-out.png)
+![Logged-Out](reeltalk/static/documents/reeltalk-logged-out.png)
 
  #### User Logged In
 
- ![Logged-In](reeltalk/static/documents/reeltalk-nav-logged-in.png)
+ ![Logged-In](reeltalk/static/documents/reeltalk-logged-in.png)
 
 #### Nav Links
 
-- The nav links are highligted in red depesing on which page the user is on.
+- The nav links are highligted in red highligting which page the user is on.
 
 #### Footer
  
@@ -161,8 +159,17 @@ The website consists of 11 pages. which are extended from a base template.
 
 - The homepage introduces the user to the website, it also shows the top 12 trending movies of the week. The sign up and login buttons are only visible if the user is not logged in.
 
-![home-page](reeltalk/static/documents/reeltalk-homepage-links.png)
+## Sign Up Page
 
+![sign-up-page](reeltalk/static/documents/reeltalk-sign-up-page.png)
+
+- The sign up page allows the user to create an account for ReelTalk. An account is required in order to search for movies, leave reviews, edit and delete reviews. 
+
+## Login Page
+
+![login-page](reeltalk/static/documents/reeltalk-login-page.png)
+
+- The login page allows the user to login into the website. 
 
 ## Movie Reviews Page
 
@@ -178,13 +185,13 @@ The website consists of 11 pages. which are extended from a base template.
 
 ## Search Movies Page
 
-![search-movie-page](reeltalk/static/documents/reeltalk-search-movie-page.png)
+![search-movie-page](reeltalk/static/documents/reeltalk-search-movies-page.png)
 
 - The search movies page allows a user to search for a movie using the TMDB database.
 
 ## Search Results Page
 
-![search-results-page](reeltalk/static/documents/reeltalk-results-page.png)
+![search-results-page](reeltalk/static/documents/reeltalk-search-results-page.png)
 
 - The search results page displays all of the movies relating to the search query. For the movies which do not have an image, I opted to use a stock image from TMDB rather than not displaying an image. The user can simply click on the image to take them to the review form.
 
@@ -208,7 +215,7 @@ The website consists of 11 pages. which are extended from a base template.
 
 ## 404 Page
 
-![404](reeltalk/static/documents/reeltalk-404-page.png)
+![404](reeltalk/static/documents//reeltalk-404-page.png)
 
 - The user is directed to the 404 page if a page cannot be found.
 
@@ -305,31 +312,134 @@ Google Dev Tools - To troubleshoot and test features, and solve issues with resp
 
 ## Deployment & Local Development
 
-### Deployment
-
 ### Local Development
 
-#### How to Fork
+For local deployment the following must be installed:
 
-To fork the repository:
+- [Python 3.12.2](www.python.org) - In order to run the application.
+- [VS Code](https://code.visualstudio.com/) - Or any other suitable IDE.
+- [Pip 24.0](https://pypi.org/project/pip/) - Pacakage installer for python.
+- [Github](https://github.com/) - In order to clone and manage the repository.
+- [PostgreSQL](https://www.postgresql.org/) - In order to create and manage the database.
 
-1. Log in (or sign up) to Github.
-2. Go to the repository for this project, rdhadda/ReelTalk
-3. Click the Fork button in the top right corner.
+#### Setup
 
-#### How to Clone
+1. Clone the reeltalk repository:
 
-To clone the ReelTalk repository:
+   - To clone the ReelTalk repository
 
-1. Log in (or sign up) to GitHub.
-2. Go to the repository for this project, rdhadda/ReelTalk
-3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
-4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
-5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+      1. Log in (or sign up) to GitHub.
+      2. Go to the repository for this project, rdhadda/ReelTalk
+      3. Click on the code button, select whether you would like to clone with HTTPS, - SSH or GitHub CLI and copy the link shown.
+      4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+      5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+
+2. Create an env.py file in the root directory of the project. Please refer to sample_env.py file for an example. In order to use the TMDB database you would need to sign upto the TMDB website. Intructions to register for an API [TMDB API](https://developer.themoviedb.org/docs/getting-started)
+
+3. Type the following command into the terminal to install the python packages used in Reeltalk.
+
+   - `pip3 install -r requirements.txt`
+
+4. Create the database using PostgreSQL. Type the following commands into the terminal.
+
+   - `set_pg`
+   - `psql`
+   - `CREATE DATABASE reeltalk`
+
+5. Add the tables to the reeltalk database using the following commands in the terminal:
+
+    - `python3`
+    - `from reeltalk import db`
+    - `db.create_all()`
+    - `exit()`
+
+- The tables from models.py should now have been added to the reeltalk database.
+
+6. To check the tables have been created, the following commands can be run:
+
+     - `set_pg`
+     - `psql`
+     - `\c reeltalk`
+     - `\dt`
+- These commands will display all the created tables within the reeltalk database.
+
+7. The reeltalk application can now be run by typing the below into the terminal:
+
+    - `python3 run.py`
+
+### Remote Deployment Heroku
+
+1. Create a database using [CI Database Maker](https://dbs.ci-dbs.net/). Once created, a URL to the database will be provided. Save this URL for later on in the process.
+
+2. In order for Heroku to run the project, two filed need to be created in the IDE workspace.
+
+    - A requirements.txt file which contains a list of the Python dependencies that our project needs in order to run successfully.
+    - A Procfile which contains the start command to run the project.
+
+- To create the requirements.txt file, run the following command in the terminal:
+
+    ```bash
+    pip3 freeze --local > requirements.txt
+    ```
+- To create the Procfile run the following command in the terminal:
+
+    ```bash
+    echo web: python app.py > Procfile
+    ```
+
+    NOTE: The Procfile uses a capital P and doesn't have a file extension on the end. Ensure there is no blank line at the end of the file as this can cause problems for deployment.
+
+    Save all files then add, commit and push the changes to GitHub.
+
+3. Login (or sign up) to [Heroku.com](https://www.heroku.com).
+
+4. Click the new button and then click create new app.
+
+5. Choose a unique name for your app, select the region closest to you and click “Create app.
+
+6. Go to the Settings tab of your new app.
+
+7. Click Reveal Config Vars.
+
+8. Add a Config Var called DATABASE_URL and paste your CI database URL in as the value. Make sure you click “Add”.
+
+9. Add each of your other environment variables except DEVELOPMENT and DB_URL from the env.py file as a Config Var. The result should look something like this:
+
+   ![config variables](reeltalk/static/documents/reeltalk-config-variables.png)
+
+ - NOTE: Delete the DEBUG variable once debugging is complete. Don't wrap strings in quotes. In order to use the TMDB database you would need to sign upto the TMDB website. Intructions to register for an API [TMDB API](https://developer.themoviedb.org/docs/getting-started)
+
+10. Navigate to the “Deploy” tab of your app.
+
+11. In the Deployment method section, select “Connect to GitHub”.
+
+12. Search for rdhadda/reeltalk repo and click Connect.
+
+13. Optional: You can click Enable Automatic Deploys in case you make any further changes to the project. This will trigger any time code is pushed to your GitHub repository.
+
+14. Click Deploy Branch - This will start the build process.
+
+15. Similarly to local deployment the tables from models.py need to be added into the database.
+
+    - To do this, we can click the “More” button and select “Run console”.
+    - Type python3 into the console and click Run.
+    - This opens the Python terminal. Now create the tables with the commands:
+
+        ```bash
+           from reeltalk import db
+        ```
+        ```bash
+           db.create_all()
+        ```
+        ```bash
+           exit()
+        ```
+
+16. The app should now be up and running. Click "Open app" to view the deployed project.
 
 ## Testing
 
-Please see [TESTING.md](TESTING.md) file for both automated and manual testing.
+Please see [TESTING.md](TESTING.md) file for both automated and manual testing of ReelTalk.
 
 ## Credits
 
@@ -348,7 +458,7 @@ Please see [TESTING.md](TESTING.md) file for both automated and manual testing.
 ### Acknowledgments
 
 - My mentor for their guidance and support.
+- Oisin from tutor support for helping me to deploy my project to Heroku.
 - My cohort for support.
 - Code Institute for informative course material.
 - The Slack community for help and support.
-- Code Institute tutor support.
