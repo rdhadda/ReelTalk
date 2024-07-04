@@ -68,14 +68,14 @@ The target audience for ReelTalk are movie lovers who like to review movies and 
 #### Returning Visitor Goals
 
 - Log into created account.
-- Create, edit, delete my reviews.
+- Create, edit, and delete my reviews.
 - Read other user's reviews.
 
 
 #### Frequent Visitor Goals
 
 - Log into created account.
-- Create, edit, delete my reviews.
+- Create, edit, and delete my reviews.
 - Read other user's reviews.
 
 ## Design
@@ -94,7 +94,7 @@ Google Fonts was used for the following fonts:
 
 ![Typography](reeltalk/static/documents/reeltalk-barrio.png)
 
-- Helvecta is used for the remaining text accross the website.
+- Helvecta is used for the remaining text across the website.
 
 
 ### Imagery
@@ -131,7 +131,7 @@ The website consists of 11 pages. which are extended from a base template.
 
 #### All 11 pages have the following elements in common:
 
-- Navbar - The navbar is present on all pages throughout the website. This allows each user to navigate their way around the website with ease. It consists of the ReelTalk logo on the left hand side and the nav links on the right. The nav links has an active attribute on them and his highlighted in red to show the user which page they're on. Certain nav links are only visible if the user is logged in. 
+- Navbar - The navbar is present on all pages throughout the website. This allows each user to navigate their way around the website with ease. It consists of the ReelTalk logo on the left-hand side and the nav links on the right. The nav links have an active attribute on them and his highlighted in red to show the user which page they're on. Certain nav links are only visible if the user is logged in. 
 
  #### User Logged Out
 
@@ -143,7 +143,7 @@ The website consists of 11 pages. which are extended from a base template.
 
 #### Nav Links
 
-- The nav links are highligted in red highligting which page the user is on.
+- The nav links are highlighted in red highlighting which page the user is on.
 
 #### Footer
  
@@ -157,31 +157,29 @@ The website consists of 11 pages. which are extended from a base template.
 
 ![home-page](reeltalk/static/documents/reeltalk-homepage.png)
 
-- The homepage introduces the user to the website, it also shows the top 12 trending movies of the week. The sign up and login buttons are only visible if the user is not logged in.
+- The homepage introduces the user to the website, it also shows the top 12 trending movies of the week. The signup and login buttons are only visible if the user is not logged in.
 
 ## Sign Up Page
 
-![sign-up-page](reeltalk/static/documents/reeltalk-sign-up-page.png)
-
-- The sign up page allows the user to create an account for ReelTalk. An account is required in order to search for movies, leave reviews, edit and delete reviews. 
+![sign-up-page]The signup page allows the user to create an account for ReelTalk. An account is required in order to search for movies, leave reviews, edit and delete reviews. 
 
 ## Login Page
 
 ![login-page](reeltalk/static/documents/reeltalk-login-page.png)
 
-- The login page allows the user to login into the website. 
+- The login page allows the user to login to the website. 
 
 ## Movie Reviews Page
 
 ![movie-reviews](reeltalk/static/documents/reeltalk-movie-reviews-page.png)
 
-- The movie reviews page shows reviews posted by all users. This is a read only page. 
+- The movie reviews page shows reviews posted by all users. This is a read-only page. 
 
 ## My Reviews Page
 
 ![my-movie-reviews](reeltalk/static/documents/reeltalk-my-reviews-page.png)
 
-- The my reviews page displays all the reviews posted by the logged in user. From here the user can modify existing reviews or can delete their review. Only the orignal poster can modify or delete their own reviews. 
+- The my reviews page displays all the reviews posted by the logged in user. From here the user can modify existing reviews or can delete their review. Only the original poster can modify or delete their own reviews. 
 
 ## Search Movies Page
 
@@ -193,25 +191,25 @@ The website consists of 11 pages. which are extended from a base template.
 
 ![search-results-page](reeltalk/static/documents/reeltalk-search-results-page.png)
 
-- The search results page displays all of the movies relating to the search query. For the movies which do not have an image, I opted to use a stock image from TMDB rather than not displaying an image. The user can simply click on the image to take them to the review form.
+- The search results page displays all of the movies relating to the search query. For the movies that do not have an image, I opted to use a stock image from TMDB rather than not displaying an image. The user can simply click on the image to take them to the review form.
 
 ## Leave A Review Page
 
 ![create-review-page](reeltalk/static/documents/reeltalk-review-page.png)
 
-- This page allows the user to create a review against their chosen movie. Once submitted the review is stored in the database.
+- This page allows the user to create a review of their chosen movie. Once submitted the review is stored in the database.
 
 ## Edit A Review Page
 
 ![edit-review-page](reeltalk/static/documents/reeltalk-edit-review-page.png)
 
-- The edit review page allows a user to edit a review they have previously created. The edit button is only visible for the user who created the review. The code also checks to see if the logged in user matches the user id of the person who posted the review.
+- The edit review page allows a user to edit a review they have previously created. The edit button is only visible to the user who created the review. The code also checks to see if the logged-in user matches the user ID of the person who posted the review.
 
 ## Delete A Review Page
 
 ![Delete-review-page](reeltalk/static/documents/reeltalk-delete-review-page.png)
 
-- The delete review page allows a user to delete a review they have previously created. The delete button is only visible for the user who created the review. The code also checks to see if the logged in user matches the user id of the person who posted the review. A modal is then displayed to confirm whether the user wants to delete the review.
+- The delete review page allows a user to delete a review they have previously created. The delete button is only visible to the user who created the review. The code also checks to see if the logged-in user matches the user ID of the person who posted the review. A modal is then displayed to confirm whether the user wants to delete the review.
 
 ## 404 Page
 
@@ -231,7 +229,7 @@ The website consists of 11 pages. which are extended from a base template.
 - Allow a user to update their password.
 - Allow a user to delete their account.
 - Add a movie rating to each movie.
-- Create an Admin account to delete non-appropriate reviews.
+- Create an Admin account to delete inappropriate reviews.
 - Allow a user to add a movie if it's not found via the TMDB API.
 - Give the ability to search for movie reviews.
 
@@ -252,13 +250,13 @@ The website consists of 11 pages. which are extended from a base template.
 
 ### Database Used
 
-[PostgreSQL](https://www.postgresql.org/) - Relational database used to store the users, movie's and reviews.
+[PostgreSQL](https://www.postgresql.org/) - Relational database used to store the users, movies and reviews.
 
 ### Frameworks Used
 
-[Flask](https://pypi.org/project/Flask/) - A micro framework. Flask login was used alongside Flask in order to manage user accounts. Flask-Login provides user session management for Flask. It handles the common tasks of logging in, logging out, and remembering your users' sessions over extended periods of time.
+[Flask](https://pypi.org/project/Flask/) - A micro-framework. Flask login was used alongside Flask to manage user accounts. Flask-Login provides user session management for Flask. It handles the common tasks of logging in, logging out, and remembering your users' sessions over extended periods.
 
-Werkzueg-Security - This allows passwords to be hashed in order to provide account security to the users of the website. Passwords will not be stored as plain-text and stored as hash which is irreversible to plaintext. This is known as a one was hash.
+Werkzueg-Security - This allows passwords to be hashed to provide account security to the users of the website. Passwords will not be stored as plain-text and stored as hash which is irreversible to plaintext. This is known as a one way hash.
 
 [Bootstrap](https://getbootstrap.com/) - v5.3.3 - CSS Framework.
 
@@ -266,7 +264,7 @@ Werkzueg-Security - This allows passwords to be hashed in order to provide accou
 
 [SQLAlchemy](https://pypi.org/project/SQLAlchemy/) - Database abstraction library, used to interact with PostgreSQL.
 
-[Pip](https://pypi.org/project/pip/) - Tool for installing python packages.
+[Pip](https://pypi.org/project/pip/) - Tool for installing Python packages.
 
 [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) - Templating engine.
 
@@ -296,25 +294,25 @@ Google Dev Tools - To troubleshoot and test features, and solve issues with resp
 
 [TMDB](https://themoviedb.org/) API for movie searches.
 
-- I chose to implement the TMDB API to allow users to search their extensive database in order for them to leave a review. I chose to store my TMDB api key within the env.py to keep it hidden and then to call it within the necessary route when needed `api_key = os.environ.get("API_KEY")`.
+- I chose to implement the TMDB API to allow users to search their extensive database for them to leave a review. I chose to store my TMDB API key within the env.py to keep it hidden and then to call it within the necessary route when needed `api_key = os.environ.get("API_KEY")`.
 
 ### Defensive Programming
 
 - I opted to use defensive programming to improve the quality of ReelTalk. I've chosen to do this in a number of ways
 
-  - Firstly I've only given the ability to view the website to logged in users. 
-  - Logged in users are able to create, modify or delete reviews, however, they can only do this if they're the original creator of the review. The code checks whether the current user which is logged in is the user whom created the review. If they're not then a message will appear stating that they do not have permission to edit/delete the post.  `current_user.id != user_review.user_id:
+  - Firstly I've only given the ability to view the website to logged-in users. 
+  - Logged-in users are able to create, modify or delete reviews, however, they can only do this if they're the original creator of the review. The code checks whether the current user who is logged in is the user who created the review. If they're not then a message will appear stating that they do not have permission to edit/delete the post.  `current_user.id != user_review.user_id:
         flash('You do not have permission to edit this review', category='error')`
-  - I've also implemented flash messages to highlight to the user when an action has been succesful or unsucessful. 
-  - All database activities are wrapped in try, except blocks. If the add or commit to the database are not successfull then the database is rolled back and a 500.html page is displayed to the user indicating an internal server error.
+  - I've also implemented flash messages to highlight to the user when an action has been successful or unsuccessful. 
+  - All database activities are wrapped in a try, except blocks. If the add or commit to the database is not successful then the database is rolled back and a 500.html page is displayed to the user indicating an internal server error.
 
- - This should hopefully reduce the likehood of bugs and crashes within the application and provide a positive user experience. 
+ - This should hopefully reduce the likelihood of bugs and crashes within the application and provide a positive user experience. 
 
 ## Deployment & Local Development
 
 ### Local Development
 
-For local deployment the following must be installed:
+- For local deployment, the following must be installed:
 
 - [Python 3.12.2](www.python.org) - In order to run the application.
 - [VS Code](https://code.visualstudio.com/) - Or any other suitable IDE.
@@ -334,9 +332,9 @@ For local deployment the following must be installed:
       4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
       5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
 
-2. Create an env.py file in the root directory of the project. Please refer to sample_env.py file for an example. In order to use the TMDB database you would need to sign upto the TMDB website. Intructions to register for an API [TMDB API](https://developer.themoviedb.org/docs/getting-started)
+2. Create an env.py file in the root directory of the project. Please refer to sample_env.py file for an example. To use the TMDB database you would need to sign up to the TMDB website. Intructions to register for an API [TMDB API](https://developer.themoviedb.org/docs/getting-started)
 
-3. Type the following command into the terminal to install the python packages used in Reeltalk.
+3. Type the following command into the terminal to install the Python packages used in Reeltalk.
 
    - `pip3 install -r requirements.txt`
 
@@ -371,10 +369,10 @@ For local deployment the following must be installed:
 
 1. Create a database using [CI Database Maker](https://dbs.ci-dbs.net/). Once created, a URL to the database will be provided. Save this URL for later on in the process.
 
-2. In order for Heroku to run the project, two filed need to be created in the IDE workspace.
+2. In order for Heroku to run the project, two files need to be created in the IDE workspace.
 
-    - A requirements.txt file which contains a list of the Python dependencies that our project needs in order to run successfully.
-    - A Procfile which contains the start command to run the project.
+    - A requirements.txt file contains a list of the Python dependencies that our project needs to run successfully.
+    - A Procfile contains the start command to run the project.
 
 - To create the requirements.txt file, run the following command in the terminal:
 
@@ -393,7 +391,7 @@ For local deployment the following must be installed:
 
 3. Login (or sign up) to [Heroku.com](https://www.heroku.com).
 
-4. Click the new button and then click create new app.
+4. Click the new button and then click Create New App.
 
 5. Choose a unique name for your app, select the region closest to you and click “Create app.
 
@@ -407,7 +405,7 @@ For local deployment the following must be installed:
 
    ![config variables](reeltalk/static/documents/reeltalk-config-variables.png)
 
- - NOTE: Delete the DEBUG variable once debugging is complete. Don't wrap strings in quotes. In order to use the TMDB database you would need to sign upto the TMDB website. Intructions to register for an API [TMDB API](https://developer.themoviedb.org/docs/getting-started)
+ - NOTE: Delete the DEBUG variable once debugging is complete. Don't wrap strings in quotes. To use the TMDB database you would need to sign upto the TMDB website. Intructions to register for an API [TMDB API](https://developer.themoviedb.org/docs/getting-started)
 
 10. Navigate to the “Deploy” tab of your app.
 
@@ -419,7 +417,7 @@ For local deployment the following must be installed:
 
 14. Click Deploy Branch - This will start the build process.
 
-15. Similarly to local deployment the tables from models.py need to be added into the database.
+15. Similarly to local deployment, the tables from models.py need to be added to the database.
 
     - To do this, we can click the “More” button and select “Run console”.
     - Type python3 into the console and click Run.
@@ -445,9 +443,9 @@ Please see [TESTING.md](TESTING.md) file for both automated and manual testing o
 
 ### Code Used
 
-- I used [Tech with Tim's youtube channel](https://www.youtube.com/@TechWithTim) to help with flask_login and flash messages.
-- I used the following website to help organise movie reviews by movie title on the movie reviews page [webforefront](https://www.webforefront.com/django/usebuiltinjinjafilters.html#google_vignette).
-- [404 error code](https://www.geeksforgeeks.org/python-404-error-handling-in-flask/) geeks for geeks website helped me handle the code for the 404 page. 
+- I used [Tech with Tim's YouTube channel](https://www.youtube.com/@TechWithTim) to help with flask_login and flash messages.
+- I used the following website to help organize movie reviews by movie title on the movie reviews page [webforefront](https://www.webforefront.com/django/usebuiltinjinjafilters.html#google_vignette).
+- [404 [error code](https://www.geeksforgeeks.org/python-404-error-handling-in-flask/) Geeks for geeks website helped me handle the code for the 404 page. 
 - [500 Internal Server Error](https://flask.palletsprojects.com/en/2.3.x/errorhandling/) flask.palletsproject helped me to implement a 500 internal server error handler.
 
 ### Media
