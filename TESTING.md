@@ -15,7 +15,7 @@
 - [Manual Testing](#Manual-Testing)
   - [Testing User Stories](#Testing-User-Stories)
   - [Full Testing](#Full-Testing)
-- [BUGS](#bugs)
+- [Bugs](#bugs)
   - [Solved Bugs](#solved-bugs)
   - [Known Bugs](#known-bugs)
 
@@ -352,3 +352,18 @@ Each device tested the site using the following browsers:
 | -------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------- | --------- |
 | Text input                                  | User to enter their review (this is a required field)                           | Review entered                     | Review saved to the database with a flash message of success                                         | Pass      |
 | Submit review button                                  | User is directed to their 'My Reviews' page and a sucess message is displayed                           | Clicked submit review button                     |  User redirected to the 'My Reviews' page and success message displayed                                       | Pass      |
+
+## Bugs
+
+### Solved Bugs
+
+| # | Bug | How I solved the issue |
+| :--- | :--- | :--- |
+| 1 | I was having an issue when deploying my project to Heroku. I was getting an error message `ModuleNotFoundError: No module named 'requests`     | I reached out to support to help diagnose the issue. It turns out that requests isn't a built in python module but is installed in gitpod by default. I added requests==2.28.1 to my requirements.txt file. Saved the changes and pushed to github and redeployed Reeltalk. These steps successfully resolved the issue  |
+| 2 | When displaying the movie titles within the bootstrap cards on the movie and my reviews pages. Some of the titles returned from the API were particulary long which caused the cards to no longer display as a grid on the screen| I resolved this by implementing and if statement. The if statement determined whether the movie title was over 30 characters if the title was over 30 characters then the movie title would only show the first 30 characters and when hovered over would show the full title. If the title was less than 30 characters then the title would be displayed as normal. This resolved the isse and all cards were displayed as a grid  |
+
+### Known Bugs
+
+| # | Bug | 
+| :--- | :--- | 
+| 1 | The release date for each movie returned from the API is in US format. The date is used on each of the movie cards across the website. Eventually I would like to rectify the issue by converting the dates to UK format to match the review created date |
