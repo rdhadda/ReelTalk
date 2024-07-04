@@ -23,6 +23,7 @@ ReelTalk was created as my third milestone project, built using a Flask framewor
   - [Typography](#Typography)
   - [Imagery](#Imagery)
   - [Wireframes](#Wireframes)
+  - [Database Design](#Databse-Design)
   
 - [Features](#Features)
     - [Web Pages](#web-pages)
@@ -110,6 +111,12 @@ Wireframes were created for mobile, tablet and desktop using Balsamiq.
 [Tablet Wireframes](documentation/tablet-wireframe.png)
 
 [Mobile Wireframes](documentation/mobile-wireframe.png)
+
+### Database Design
+
+ReelTalk is based on a relational database. The database is made up of 3 tables, a User, Movie and Review table. The tables are related via their primary and foreign keys in addition to the backrefs which made querying the database easier.
+
+![database schema](reeltalk/static/documents/reeltalk-database-schema.png)
 
 ### Features
 
