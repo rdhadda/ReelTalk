@@ -106,11 +106,11 @@ All images on the webpage were taken from TMDB. I have credited these in the [cr
 
 Wireframes were created for mobile, tablet and desktop using Balsamiq.
 
-[Desktop Wireframes](documentation/desktop-wireframe.png)
+[Desktop Wireframes](reeltalk/static/documents/desktop-wireframes.png)
 
-[Tablet Wireframes](documentation/tablet-wireframe.png)
+[Tablet Wireframes](reeltalk/static/documents/tablet-wireframes.png)
 
-[Mobile Wireframes](documentation/mobile-wireframe.png)
+[Mobile Wireframes](reeltalk/static/documents/mobile-wireframes.png)
 
 ### Database Design
 
