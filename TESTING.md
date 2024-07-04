@@ -15,12 +15,15 @@
 - [Manual Testing](#Manual-Testing)
   - [Testing User Stories](#Testing-User-Stories)
   - [Full Testing](#Full-Testing)
+- [BUGS](#bugs)
+  - [Solved Bugs](#solved-bugs)
+  - [Known Bugs](#known-bugs)
 
 ## Testing
 
 Testing was continuous throughout the website build. I used Chrome developer tools to identify and address any issues as they arose.
 
-- My automated testing consisted of using W3C Validator, JSHint, Lighthouse, Wave and the CI Linter python.
+- My automated testing consisted of using W3C Validator, JSHint, Lighthouse, Wave and the CI Linter Python.
 - I then manually tested the user stories along with the functionality of the website.
 
 ## Automated Testing
@@ -223,17 +226,18 @@ I took the opportunity to utilize Lighthouse within Chrome Developer Tools. This
 
 | Goals                                                        | How are they achieved?                                                                                                         |
 | :----------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------- |
-| I want to be able to play quiz online.                       | ReelTalk is a web-based quiz, which accessible across desktop, tablet and mobile devices.                                    |
-| I want to be able to navigate through the website with ease. | The website uses a series of buttons to allow the player to easily navigate the website. ![buttons](documentation/buttons.png) |
-| I want to be able to enter my name.                          | There is an input field on the home page which allows the user to enter their name.                                            |
-| I want the website to be responsive across varying devices.  | Media queries have been used in order to make ReelTalk responsive across a variety of devices.                               |
+| Register for an account                                    | There is a sign up link on the home page which encourages a user to create an account.
+| Search for movies | Once a user has signed up to an account. They can search for a movie by clicking the 'Review A Movie' nav link.
+| Understand what the site is for and easily navigate their way around                          |   A description of what the site is is included on the home page.                                         |
+| I want the website to be responsive across varying devices.  | Bootstrap has been used in order to make ReelTalk responsive across a variety of devices.                               |
 
 #### Returning Visitors and Frequent Visitors
 
 | Goals                                                                    | How are they achieved?                                                                                                                                                              |
 | :----------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| I want a variety of questions across different subjects.                 | There are a variety of questions which are randomly selected each time the game is played.                                                                                          |
-| I want to be able to select the difficulty of the questions being asked. | On the game page of ReelTalk, the player is presented with three difficulty level buttons. Once selected the questions being asked will be determined on the difficulty selected. |
+| Log into created account.                 |  If a user is not logged into an account, a login link is provided on the navbar and home page.                                              |
+|Create, edit and delete my own reviews. | A user has access to all of their reviews on the 'My Reviews Page' from here the user can edit and delete any existing reviews. They can create a new review by clicking on the 'Review A Movie' link. This allows a user to search for a movie and create a review.  |
+|Read other users reviews. | All reviews for all reviewed movies are displayed on the 'Movie Review' page. |
 
 ### Full Testing
 
@@ -254,48 +258,97 @@ Each device tested the site using the following browsers:
 - Google Chrome
 - Safari
 
+#### Nav Bar
+
+| Feature                                            | Expected Outcome                                                       | Testing Performed                  | Result                                                      | Pass/Fail |
+| -------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------- | --------- |
+| ReelTalk Logo                                   | Link directs the user back to the home page                            | Clicked title                      | Home page reloads                                           | Pass      |
+| Login link (only shown if user is not logged in)                             | Directs user to the login page                                      | Clicked link                       | Redirected to the login page                                           | Pass      |
+| Movie reviews link (logged in users only) | Directs user to the movie reviews page | Clicked link                       | Redirected to the movie reviews page                           | Pass      |
+| My reviews link (logged in users only) | Directs user to the my reviews page | Clicked link                       | Redirected to the my reviews page                           | Pass      |
+| Review a movie link (logged in users only) | Directs user to the Review a movie page | Clicked link                       | Redirected to the Review a movie page                           | Pass      |
+| Logout link (logged in users only) | Directs user to the home page | Clicked link                       | Redirected to the home page                           | Pass      |
+
+### Footer
+
+| Feature                                            | Expected Outcome                                                       | Testing Performed                  | Result                                                      | Pass/Fail |
+| -------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------- | --------- |
+| Facebook link                                   | Directs the user to Facebooks webpage in a new tab                             | Clicked logo                      | New tab opens on Facebooks webpage.                                           | Pass      |
+| Twitter link                                   | Directs the user to Twitters webpage in a new tab                             | Clicked logo                      | New tab opens on Twitters webpage.                                           | Pass      |
+| Instagram link                                   | Directs the user to Instagrams webpage in a new tab                             | Clicked logo                      | New tab opens on Instagrams webpage.                                           | Pass      |
+
+
 #### Home Page
 
 | Feature                                            | Expected Outcome                                                       | Testing Performed                  | Result                                                      | Pass/Fail |
 | -------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------- | --------- |
-| The Sites title                                    | Link directs the user back to the home page                            | Clicked title                      | Home page reloads                                           | Pass      |
-| Enter Your Name Input                              | Allows Player to Enter their name                                      | Entered name                       | Name is displayed                                           | Pass      |
-| Start Game button becomes is initially unavailable | Button becomes available to click once a player has entered their name | Entered name                       | Button becomes available to click                           | Pass      |
-| Start Game                                         | Directs the user to the game page                                      | Clicked on button                  | Game page opens to display the questions                    | Pass      |
-| How to play button                                 | Opens the accordion with the instructions on how to play the game      | Clicked on button                  | accordion with instructions on how to play opens            | Pass      |
-| All buttons - hover effect                         | All purple buttons should highlight with a blue neon effect background | Hover over each button on the page | Each button displayed the correct styling when hovered over | Pass      |
+| Sign up button (logged out users only)                                    | Link directs the user to the sign up page                            | Clicked sign up button                      | Redirected to the sign up page                                           | Pass      |
+| Login link (only shown if user is not logged in)                             | Directs user to the login page                                      | Clicked link                       | Redirected to the login page                                           | Pass      |
+| Trending movied | The weeks top 12 trending movied are displayed | Loaded home page                       | Movie cards are dispplayed                           | Pass      |
 
-#### Game Page
+#### Sign Up Page
 
-| Feature                                                            | Expected Outcome                                                                                                                                | Testing Performed                                              | Result                                                                                                   | Pass/Fail |
-| ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | --------- |
-| The Sites title                                                    | Link directs the user back to the home page                                                                                                     | Clicked title                                                  | Home page reloads                                                                                        | Pass      |
-| Easy Button                                                        | Easy questions are displayed                                                                                                                    | Click easy button                                              | Easy questions are displayed                                                                             | Pass      |
-| Medium Button                                                      | Medium questions are displayed                                                                                                                  | Click easy button                                              | Medium questions are displayed                                                                           | Pass      |
-| Hard Button                                                        | Hard questions are displayed                                                                                                                    | Click easy button                                              | Hard questions are displayed                                                                             | Pass      |
-| Easy/Medium/Hard Button Disabled                                   | Once one of the buttons are clicked all three buttons become un-clickable                                                                       | Click easy/medium/hard button                                  | All buttons become un-clickable                                                                          | Pass      |
-| Choice boxes disabled until player selects difficulty of questions | Choice boxes are disabled                                                                                                                       | Click easy/medium/hard button                                  | Choice boxes are no longer disabled and are clickable                                                    | Pass      |
-| All buttons - hover effect                                         | All purple buttons should highlight with a blue neon effect background                                                                          | Hover over each button on the page                             | Each button displayed the correct styling when hovered over                                              | Pass      |
-| Question populated                                                 | The question from available questions array is correctly pulled from question.js                                                                | Started a new game                                             | The question is displaying                                                                               | Pass      |
-| Answers populated                                                  | The answers from available questions array is correctly pulled from question.js                                                                 | Started a new game                                             | The four answer choices are displaying correctly                                                         | Pass      |
-| Unable to change answer selection                                  | Once a player has selected an answer, they're unable to change their selection                                                                  | Tried to select a different answer from the original selection | Unable to select alternate answer                                                                        | Pass      |
-| Correct answer                                                     | When a correct answer is clicked the box around the answer should display green with a tick                                                     | Clicked on a correct answer                                    | box displayed green with a tick                                                                          | Pass      |
-| Incorrect answer                                                   | When an incorrect answer is clicked the answer should highlight red with a cross and the correct answer should be highlighted green with a tick | Clicked incorrect answer                                       | incorrect answer is highlighted red with a cross and the correct answer is highlighted green with a tick | Pass      |
-| Progress bar                                                       | When a question has been answered the progress bar should increment by one                                                                      | Clicked answer box                                             | Progress bar is incremented by 1                                                                         | Pass      |
+| Feature                                            | Expected Outcome                                                       | Testing Performed                  | Result                                                      | Pass/Fail |
+| -------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------- | --------- |
+| First name input                                    | The users first name should be more than 2 characters long                            | Entered first name less than 2 characters long                      | Flash message alerts the user they have not entered enough characters                                           | Pass      |
+| Last name input                                    | The users should enter their last name                            | Entered last name                       |                                            | Pass      |
+| Email input                                    | The users email should be more than 4 characters long                            | Entered email less than 4 characters long                      | Flash message alerts the user they have not entered enough characters                                           | Pass      |
+| Email input (already in use)                                    | The users email must be unique                            | Entered email which already exists in the database                     | Flash message alerts the user that the email is already in use characters                                           | Pass      |
+| Password input                                    | The users password should be between 8 and 20 characters long                            | Entered password less than 8 and more than 20 characters long                      | Flash message alerts the user they have not matched the correct criteria                                          | Pass      |
+| Confirm password input                                    | The users password should match the password input field                            | Entered password which differs from the password input field                      | Flash message alerts the user that the passwords do not match                                          | Pass      |
+| Sign up button                                    | Link directs the user to the home page and displayed a message indicating the user has been created                            | Clicked sign up button                      | Redirected to the home page. Flash message displayed                                           | Pass      |
 
-#### Score Page
+#### Login Page
 
-| Feature                                       | Expected Outcome                                                                              | Testing Performed                  | Result                                                      | Pass/Fail |
-| --------------------------------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------- | --------- |
-| The Sites title                               | Link directs the user back to the home page                                                   | Clicked title                      | Home page reloads                                           | Pass      |
-| Score appears with a comment and players name | Once the player has successfully completed a game a message appears with their name and score | Completed a game                   | Message appears with name and score                         | Pass      |
-| All buttons - hover effect                    | All purple buttons should highlight with a blue neon effect background                        | Hover over each button on the page | Each button displayed the correct styling when hovered over | Pass      |
-| Play Again - Button                           | Directs the user to the game page                                                             | Clicked on button                  | Game page opens to display the questions                    | Pass      |
+| Feature                                            | Expected Outcome                                                       | Testing Performed                  | Result                                                      | Pass/Fail |
+| -------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------- | --------- |
+| Email input                                    | User to enter e-mail address                            | Enter email address                     | Flash message alerts the user if the email doesn't exist in the database                                           | Pass      |
+| Password input                                    | User to enter password                            | Enter password                     | Flash message alerts the user if the password is incorrect                                           | Pass      |
+| Login button                                    | Directs the user to the 'My Reviews' page and a flash message appears with 'Successful Login'                            | Click button                     | Redirected to the 'My Reviews' page                                           | Pass      |
 
-#### 404 Page
+#### My Reviews Page
 
-| Feature                    | Expected Outcome                                                       | Testing Performed                  | Result                                                      | Pass/Fail |
-| -------------------------- | ---------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------- | --------- |
-| The Sites title            | Link directs the user back to the home page                            | Clicked title                      | Home page reloads                                           | Pass      |
-| All buttons - hover effect | All purple buttons should highlight with a blue neon effect background | Hover over each button on the page | Each button displayed the correct styling when hovered over | Pass      |
-| Take Me Home - Button      | Directs the user to the homepage page                                  | Clicked on button                  | Homepage is displayed                                       | Pass      |
+| Feature                                            | Expected Outcome                                                       | Testing Performed                  | Result                                                      | Pass/Fail |
+| -------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------- | --------- |
+| Edit button                                    | User directed to the edit review page                           | Click edit button                     | Redirected to the edit review page                                           | Pass      |
+| Delete button                                    | Modal appears confirming if the user wants to delete the review                           | Clicked delete button                     | Modal appears with  a delete and close button                                           | Pass      |
+| Delete button on modal                                    | Once clicked the review will be deleted and a message displayed confirming that the review has been deleted                           | Clicked delete button                     | Review is deleted and message displayed                                           | Pass      |
+| Close button on modal                                    | Once clicked the modal will close                         | Clicked close button                     | Modal is closed                                           | Pass      |
+| No Reviews                                    | If the user has not posted any reviews a message is displayed stating now reviews have been made yet                         | No reviews created                    | Message displayed stating no reviews made                                           | Pass      |
+
+#### Edit Review Page
+
+| Feature                                            | Expected Outcome                                                       | Testing Performed                  | Result                                                      | Pass/Fail |
+| -------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------- | --------- |
+| Text input                                  | Users review is displayed ready to edit                           | Review editied                     | Review saved to the database with a flash message of success                                         | Pass      |
+| Update review button                                  | User is directed to their 'My Reviews' page and a sucess message is displayed                           | Clicked update review button                     |  User redirected to the 'My Reviews' page and success message displayed                                       | Pass      |
+| Back button                                  | User is directed to their 'My Reviews' page                           | Clicked back button                     |  User redirected to the 'My Reviews' page                                        | Pass      |
+
+#### Movie Reviews Page
+
+| Feature                                            | Expected Outcome                                                       | Testing Performed                  | Result                                                      | Pass/Fail |
+| -------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------- | --------- |
+| On page load                                   | All user reviews are displayed                           | Loaded page                     | All reviews are shown                                         | Pass      |
+| On page load                                   | If there are no reviews, then a message is displayed stating there are no reviews                            | Loaded page                     | No reviews message is displayed                                         | Pass      |
+
+#### Search Movies Page
+
+| Feature                                            | Expected Outcome                                                       | Testing Performed                  | Result                                                      | Pass/Fail |
+| -------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------- | --------- |
+| Search input                                  | User to enter a movie title                           | Movie title entered                     | The search returns the movie title                                         | Pass      |
+| Search input (No result)                                  | User to enter a movie title                           | Movie title entered                     | Flash message indicates there is no such movie title                                         | Pass      |
+| Search button                                  | Directs user to search results page                           | Clicked button                     | Redircted to the search results page                                        | Pass      |
+
+#### Search Results Page
+
+| Feature                                            | Expected Outcome                                                       | Testing Performed                  | Result                                                      | Pass/Fail |
+| -------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------- | --------- |
+| Movie card                                  | Once clicked directs the user to the review page                           | Clicked movie card                     | Redircted to the reviews page                                         | Pass      |
+| Movie card image                                  | If no image is returned from the TMDB API a stock image is displayed                           | Searched for movie with no image                     | Stock TMDB image displayed                                         | Pass      |
+
+#### Review Page
+
+| Feature                                            | Expected Outcome                                                       | Testing Performed                  | Result                                                      | Pass/Fail |
+| -------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------- | --------- |
+| Text input                                  | User to enter their review (this is a required field)                           | Review entered                     | Review saved to the database with a flash message of success                                         | Pass      |
+| Submit review button                                  | User is directed to their 'My Reviews' page and a sucess message is displayed                           | Clicked submit review button                     |  User redirected to the 'My Reviews' page and success message displayed                                       | Pass      |
