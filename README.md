@@ -168,7 +168,7 @@ The website consists of 11 pages. which are extended from a base template.
 
 ## Sign Up Page
 
-![sign-up-page]The signup page allows the user to create an account for ReelTalk. An account is required in order to search for movies, leave reviews, edit and delete reviews. 
+![sign-up-page](reeltalk/static/documents/reeltalk-sign-up-page.png)The signup page allows the user to create an account for ReelTalk. An account is required in order to search for movies, leave reviews, edit and delete reviews. 
 
 ## Login Page
 
@@ -186,7 +186,7 @@ The website consists of 11 pages. which are extended from a base template.
 
 ![my-movie-reviews](reeltalk/static/documents/reeltalk-my-reviews-page.png)
 
-- The my reviews page displays all the reviews posted by the logged in user. From here the user can modify existing reviews or can delete their review. Only the original poster can modify or delete their own reviews. 
+- The My Reviews page displays all the reviews posted by the logged-in user. From here the user can modify existing reviews or can delete their review. Only the original poster can modify or delete their own reviews. 
 
 ## Search Movies Page
 
@@ -263,7 +263,7 @@ The website consists of 11 pages. which are extended from a base template.
 
 [Flask](https://pypi.org/project/Flask/) - A micro-framework. Flask login was used alongside Flask to manage user accounts. Flask-Login provides user session management for Flask. It handles the common tasks of logging in, logging out, and remembering your users' sessions over extended periods.
 
-Werkzueg-Security - This allows passwords to be hashed to provide account security to the users of the website. Passwords will not be stored as plain-text and stored as hash which is irreversible to plaintext. This is known as a one way hash.
+Werkzueg-Security - This allows passwords to be hashed to provide account security to the users of the website. Passwords will not be stored as plain-text and stored as hash which is irreversible to plaintext. This is known as a one-way hash.
 
 [Bootstrap](https://getbootstrap.com/) - v5.3.3 - CSS Framework.
 
@@ -293,7 +293,7 @@ Google Dev Tools - To troubleshoot and test features, and solve issues with resp
 
 [Squoosh](https://squoosh.app/) Compress images and convert to webp format.
 
-[Sheilds](https://shields.io/) Add badges to README.
+[Shields](https://shields.io/) Add badges to README.
 
 [Lucid Chart](https://lucid.app) To create the database schema.
 
@@ -305,10 +305,10 @@ Google Dev Tools - To troubleshoot and test features, and solve issues with resp
 
 ### Defensive Programming
 
-- I opted to use defensive programming to improve the quality of ReelTalk. I've chosen to do this in a number of ways
+- I opted to use defensive programming to improve the quality of ReelTalk. I've chosen to do this in several ways
 
   - Firstly I've only given the ability to view the website to logged-in users. 
-  - Logged-in users are able to create, modify or delete reviews, however, they can only do this if they're the original creator of the review. The code checks whether the current user who is logged in is the user who created the review. If they're not then a message will appear stating that they do not have permission to edit/delete the post.  `current_user.id != user_review.user_id:
+  - Logged-in users can create, modify or delete reviews, however, they can only do this if they're the original creator of the review. The code checks whether the current user who is logged in is the user who created the review. If they're not then a message will appear stating that they do not have permission to edit/delete the post.  `current_user.id != user_review.user_id:
         flash('You do not have permission to edit this review', category='error')`
   - I've also implemented flash messages to highlight to the user when an action has been successful or unsuccessful. 
   - All database activities are wrapped in a try, except blocks. If the add or commit to the database is not successful then the database is rolled back and a 500.html page is displayed to the user indicating an internal server error.
@@ -321,11 +321,11 @@ Google Dev Tools - To troubleshoot and test features, and solve issues with resp
 
 - For local deployment, the following must be installed:
 
-- [Python 3.12.2](www.python.org) - In order to run the application.
+- [Python 3.12.2](www.python.org) - To run the application.
 - [VS Code](https://code.visualstudio.com/) - Or any other suitable IDE.
-- [Pip 24.0](https://pypi.org/project/pip/) - Pacakage installer for python.
-- [Github](https://github.com/) - In order to clone and manage the repository.
-- [PostgreSQL](https://www.postgresql.org/) - In order to create and manage the database.
+- [Pip 24.0](https://pypi.org/project/pip/) - Package installer for Python.
+- [Github](https://github.com/) - To clone and manage the repository.
+- [PostgreSQL](https://www.postgresql.org/) - To create and manage the database.
 
 #### Setup
 
