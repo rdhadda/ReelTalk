@@ -174,7 +174,7 @@ The website consists of 11 pages. which are extended from a base template.
 
 ![login-page](reeltalk/static/documents/reeltalk-login-page.png)
 
-- The login page allows the user to login to the website. 
+- The login page allows the user to log in to the website. 
 
 ## Movie Reviews Page
 
@@ -452,7 +452,7 @@ Please see [TESTING.md](TESTING.md) file for both automated and manual testing o
 
 - I used [Tech with Tim's YouTube channel](https://www.youtube.com/@TechWithTim) to help with flask_login and flash messages.
 - I used the following website to help organize movie reviews by movie title on the movie reviews page [webforefront](https://www.webforefront.com/django/usebuiltinjinjafilters.html#google_vignette).
-- [404 [error code](https://www.geeksforgeeks.org/python-404-error-handling-in-flask/) Geeks for geeks website helped me handle the code for the 404 page. 
+- [404 error code](https://www.geeksforgeeks.org/python-404-error-handling-in-flask/) Geeks for geeks website helped me handle the code for the 404 page. 
 - [500 Internal Server Error](https://flask.palletsprojects.com/en/2.3.x/errorhandling/) flask.palletsproject helped me to implement a 500 internal server error handler.
 
 ### Media
