@@ -1,3 +1,5 @@
+/* ------------------------------------------------------------------- Body & Main Container Styling */
+
 body {
     display: flex;
     min-height: 100vh;
@@ -8,10 +10,29 @@ body {
     flex: 1 0 auto;
   }
 
-  a {
-    text-decoration: none; 
-    color: black; 
+  /* ------------------------------------------------------------------- Nav Bar Styling */
+
+  .nav-logo{
+    width: 9rem;
+    height: auto;
   }
+  
+  .nav-link{
+    font-family: Barrio, sans-serif;
+    color: white;
+    font-size: 1.5rem;
+  }
+  
+  .nav-link:focus, .nav-link:hover {
+    color: red;
+  }
+  
+  .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: red;
+    font-size: 1.5rem;       
+  }
+
+  /* ------------------------------------------------------------------- Image Styling */
 
   .responsive-img {
     max-width: 100%; 
@@ -23,6 +44,17 @@ body {
     height: auto;
   }
 
+  .logo{
+    max-width: 30%;
+    height: auto;
+  }
+  
+  .review-logo{
+    max-width: 100%;
+    height: auto;
+  }
+
+   /* ------------------------------------------------------------------- Class to center content */
   .center-content {
     display: flex;
     justify-content: center;
@@ -30,47 +62,25 @@ body {
     height: 50vh;
 }
 
+/* ------------------------------------------------------------------- Margin Styles */
 .margin-left{
   margin-left: 0.5rem;
 }
 
-.nav-logo{
-  width: 9rem;
-  height: auto;
-}
-
-.nav-link{
-  font-family: Barrio, sans-serif;
-  color: white;
-  font-size: 1.5rem;
-}
-
-.nav-link:focus, .nav-link:hover {
-  color: red;
-}
-
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
-  color: red;
-  font-size: 1.5rem;  
-   
-}
-
-.logo{
-  max-width: 30%;
-  height: auto;
-}
-
-.review-logo{
-  max-width: 100%;
-  height: auto;
-}
-
+ /* ------------------------------------------------------------------- Text Styling */
 .text-red{
   color: #d72323;
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 3px;
 }
+
+a {
+  text-decoration: none; 
+  color: black; 
+}
+
+/* ------------------------------------------------------------------- Footer Styling */
 
 footer{
   font-family: Barrio, sans-serif;
