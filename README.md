@@ -230,6 +230,14 @@ The website consists of 11 pages. which are extended from a base template.
 
 - The user is directed to the 500 page if there is an internal server error.
 
+### CRUD Functionality
+
+- ReelTalk meets the requirements of CRUD
+   - Create - A user can create their own user account. In addition to this, they can create movie reviews.
+   - Read - A user can read all user's reviews on the 'Movie Reviews' webpage. They're also able to read their own reviews on the 'My Reviews' page.
+   - Update - A user can modify/update their existing reviews.
+   - Delete - A user can delete any review that they have created.
+
 
 ### Future Implementations
 
@@ -290,8 +298,6 @@ Google Dev Tools - To troubleshoot and test features, and solve issues with resp
 [Am I Responsive](https://ui.dev/amiresponsive) To show the website across a range of devices.
 
 [Fontawsome](https://fontawesome.com/start) For the cross and tick.
-
-[Squoosh](https://squoosh.app/) Compress images and convert to webp format.
 
 [Shields](https://shields.io/) Add badges to README.
 
