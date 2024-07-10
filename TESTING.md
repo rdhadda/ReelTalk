@@ -44,6 +44,7 @@ W3C validator was used to validate the HTML on all pages of the website. It was 
 - [Movie Reviews Page](reeltalk/static/documents/w3-movie-reviews.png)
 - [404 Page](reeltalk/static/documents/w3-404-page.png)
 - [500 Page](reeltalk/static/documents/w3-500-page.png)
+- [CSS](reeltalk/static/documents/reeltalk-w3-css.png)
 
 
 
