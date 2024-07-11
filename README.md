@@ -378,6 +378,16 @@ Google Dev Tools - To troubleshoot and test features, and solve issues with resp
 
     - `python3 run.py`
 
+### How to Fork
+
+To fork the repository:
+
+1. Log in (or sign up) to Github.
+
+2. Go to the repository for this project, [ReelTalk](https://github.com/rdhadda/ReelTalk).
+
+3. Click the Fork button in the top right corner.
+
 ### Remote Deployment Heroku
 
 1. Create a database using [CI Database Maker](https://dbs.ci-dbs.net/). Once created, a URL to the database will be provided. Save this URL for later on in the process.
