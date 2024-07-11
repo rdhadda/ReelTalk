@@ -297,9 +297,13 @@ def edit_review(review_id):
         flash('Review does not exist', category='error')
     # check if the current user's id matches the id of the logged in user
     elif current_user.id != user_review.user_id:
+        # If the current user doesn\'t match the id
+        # of the user who created the review
+        # the user is redirected to a 403 page
         flash(
             'You do not have permission to edit this review', category='error'
-            )
+        )
+        abort(403)
     else:
         if request.method == 'POST':
             review_text = request.form.get('review_text')
@@ -334,10 +338,14 @@ def delete_review(review_id):
         flash('Review does not exist', category == 'error')
     # check if the current user's id matches the id of the logged in user
     elif current_user.id != user_review.user_id:
+        # If the current user doesn\'t match the id
+        # of the user who created the review
+        # the user is redirected to a 403 page
         flash(
             'You do not have permission to delete this review',
             category='error'
             )
+        abort(403)
     else:
         try:
             db.session.delete(user_review)
@@ -374,6 +382,16 @@ def page_not_found(e):
 
     """
     return render_template('404.html')
+
+
+# 403 error handling
+@app.errorhandler(403)
+def page_not_found(e):
+    """
+    page not found redirects a user to a 403 page.
+
+    """
+    return render_template('403.html')
 
 
 # 500 error handling taken from flask.palletsprojects

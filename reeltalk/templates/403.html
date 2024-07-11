@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block content %}
+
+<img
+  class="mx-auto d-block pt-4 logo"
+  src="{{ url_for('static', filename='img/reeltalk-high-res.png') }}"
+  alt=""
+/>
+
+<!-- 403 error message with link back to the homepage -->
+<div class="mt-5">
+  <h1 class="text-center d-block">403</h1>
+  <h2 class="text-center d-block">Access Denied</h2>
+  <p class="d-block text-center">
+    You do not have permission to access this resource on this server.
+  </p>
+  <div class="d-flex justify-content-center">
+    <a class="btn btn-dark text-center" href="{{ url_for('home') }}">Go Home</a>
+  </div>
+</div>
+
+{% endblock %}
