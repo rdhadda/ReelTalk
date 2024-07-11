@@ -23,7 +23,7 @@ ReelTalk was created as my third milestone project, built using a Flask framewor
   - [Typography](#Typography)
   - [Imagery](#Imagery)
   - [Wireframes](#Wireframes)
-  - [Database Design](#Databse-Design)
+  - [Database Design](#database-design)
   
 - [Features](#Features)
     - [Web Pages](#web-pages)
@@ -56,7 +56,7 @@ ReelTalk is a website aimed at movie lovers. A user has the ability to search fo
 
 #### Target Audience
 
-The target audience for ReelTalk are movie lovers who like to review movies and read other peoples reviews. 
+The target audience for ReelTalk are movie lovers who like to review movies and read other people's reviews. 
 
 ### User Stories
 
@@ -116,11 +116,16 @@ Wireframes were created for mobile, tablet and desktop using Balsamiq.
 
 ReelTalk is based on a relational database. The database is made up of 3 tables, a User, Movie and Review table. The tables are related via their primary and foreign keys in addition to the backrefs which made querying the database easier.
 
+The relationship between the tables are as follows:
+
+- User to Review: One-to-Many. One user can write many reviews. This relationship is defined using `db.relationship` in the User model and the `db.ForeignKey` in the Review model.
+- Movie to Review: One-to-Many. One movie can have many reviews. This relationship is defined using `db.relationship` in the Movie model and the `db.ForeignKey` in the Review model.
+
 ![database schema](reeltalk/static/documents/reeltalk-database-schema.png)
 
 ### Features
 
-The website consists of 11 pages. which are extended from a base template.
+The website consists of 12 pages. which are extended from a base template.
 
 - Home Page
 - Login Page
@@ -134,9 +139,10 @@ The website consists of 11 pages. which are extended from a base template.
 - Movie Reviews Page
 - 404 Page
 - 500 Page
+- 403 Page
 
 
-#### All 11 pages have the following elements in common:
+#### All 12 pages have the following elements in common:
 
 - Navbar - The navbar is present on all pages throughout the website. This allows each user to navigate their way around the website with ease. It consists of the ReelTalk logo on the left-hand side and the nav links on the right. The nav links have an active attribute on them and his highlighted in red to show the user which page they're on. Certain nav links are only visible if the user is logged in. 
 
@@ -229,6 +235,12 @@ The website consists of 11 pages. which are extended from a base template.
 ![500](reeltalk/static/documents/reeltalk-500-page.png)
 
 - The user is directed to the 500 page if there is an internal server error.
+
+## 403 Page
+
+![403](reeltalk/static/documents/reeltalk-403-page.png)
+
+- The user is directed to the 403 page if they try to access another user's reviews to either edit or delete them.
 
 ### CRUD Functionality
 
