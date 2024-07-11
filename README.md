@@ -116,6 +116,9 @@ Wireframes were created for mobile, tablet and desktop using Balsamiq.
 
 ReelTalk is based on a relational database. The database is made up of 3 tables, a User, Movie and Review table. The tables are related via their primary and foreign keys in addition to the backrefs which made querying the database easier.
 
+The backref command `reviews = db.relationship(
+        'Review', backref='user')` on the User table creates a virtual column on the Review table called user making it easier to query the database. For example, you can access the reviews from the user table using `User.reviews` at the same time you can access a user from the reviews table using `Review.user`. This approach has been beneficial when displaying reviews linked to different users.
+
 The relationship between the tables are as follows:
 
 - User to Review: One-to-Many. One user can write many reviews. This relationship is defined using `db.relationship` in the User model and the `db.ForeignKey` in the Review model.
