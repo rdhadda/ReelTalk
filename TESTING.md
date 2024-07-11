@@ -44,6 +44,7 @@ W3C validator was used to validate the HTML on all pages of the website. It was 
 - [Movie Reviews Page](reeltalk/static/documents/w3-movie-reviews.png)
 - [404 Page](reeltalk/static/documents/w3-404-page.png)
 - [500 Page](reeltalk/static/documents/w3-500-page.png)
+- [403 Page](reeltalk/static/documents/w3-403-page.png)
 - [CSS](reeltalk/static/documents/reeltalk-w3-css.png)
 
 
@@ -104,6 +105,10 @@ I took the opportunity to utilize Lighthouse within Chrome Developer Tools. This
  
  ![500 Page](reeltalk/static/documents/lighthouse-desktop-404.png)
 
+ #### 403 Page
+ 
+ ![403 Page](reeltalk/static/documents/lighthouse-desktop-403.png)
+
 </details>
 
 #### Mobile Testing
@@ -150,6 +155,10 @@ I took the opportunity to utilize Lighthouse within Chrome Developer Tools. This
  #### 500 Page
  
  ![500 Page](reeltalk/static/documents/lighthouse-mobile-404.png)
+
+  #### 403 Page
+ 
+ ![403 Page](reeltalk/static/documents/lighthouse-mobile-403.png)
 
 </details>
 
@@ -201,6 +210,10 @@ I took the opportunity to utilize Lighthouse within Chrome Developer Tools. This
  #### 500 Page
  
  ![500 Page](reeltalk/static/documents/wave-404.png)
+
+  #### 403 Page
+ 
+ ![403 Page](reeltalk/static/documents/wave-403.png)
 
 </details>
 
@@ -325,6 +338,7 @@ Each device tested the site using the following browsers:
 | Update review button                                  | User is directed to their 'My Reviews' page and a sucess message is displayed                           | Clicked update review button                     |  User redirected to the 'My Reviews' page and success message displayed                                       | Pass      |
 | Back button                                  | User is directed to their 'My Reviews' page                           | Clicked back button                     |  User redirected to the 'My Reviews' page                                        | Pass      |
 
+
 #### Movie Reviews Page
 
 | Feature                                            | Expected Outcome                                                       | Testing Performed                  | Result                                                      | Pass/Fail |
@@ -353,6 +367,14 @@ Each device tested the site using the following browsers:
 | -------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------- | --------- |
 | Text input                                  | User to enter their review (this is a required field)                           | Review entered                     | Review saved to the database with a flash message of success                                         | Pass      |
 | Submit review button                                  | User is directed to their 'My Reviews' page and a sucess message is displayed                           | Clicked submit review button                     |  User redirected to the 'My Reviews' page and success message displayed                                       | Pass      |
+
+#### 403 & 404 Pages
+
+| Feature                                            | Expected Outcome                                                       | Testing Performed                  | Result                                                      | Pass/Fail |
+| -------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------- | --------- |
+| 403 - User tries to access another users reviews to edit/delete review                                  | 403 page is displayed                           | Tried to access another users reviews via the URL address                     | 403 page displayed along with a flash message                                         | Pass      |
+| 404 - User tries to access a page which doesn't exist on the website                               | 404 page is displayed                           | Tried to access a webpage which doesnt exist on the website                     | 404 page displayed                                          | Pass      |
+
 
 ## Bugs
 
