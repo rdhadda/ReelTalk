@@ -103,7 +103,7 @@ I took the opportunity to utilize Lighthouse within Chrome Developer Tools. This
  
  #### 500 Page
  
- ![500 Page](reeltalk/static/documents/lighthouse-desktop-404.png)
+ ![500 Page](reeltalk/static/documents/lighthouse-desktop-500-page.png)
 
  #### 403 Page
  
@@ -154,7 +154,7 @@ I took the opportunity to utilize Lighthouse within Chrome Developer Tools. This
  
  #### 500 Page
  
- ![500 Page](reeltalk/static/documents/lighthouse-mobile-404.png)
+ ![500 Page](reeltalk/static/documents/lighthouse-mobile-500-page.png)
 
   #### 403 Page
  
@@ -209,7 +209,7 @@ I took the opportunity to utilize Lighthouse within Chrome Developer Tools. This
  
  #### 500 Page
  
- ![500 Page](reeltalk/static/documents/wave-404.png)
+ ![500 Page](reeltalk/static/documents/wave-500-page.png)
 
   #### 403 Page
  
