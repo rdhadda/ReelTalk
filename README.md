@@ -52,11 +52,32 @@ ReelTalk was created as my third milestone project, built using a Flask framewor
 
 ## User Experience (UX)
 
-ReelTalk is a website aimed at movie lovers. A user has the ability to search for their desired movie and leave a review, once they have signed up to the website to share with other users. The user also has the ability to modify their existing reviews and delete a review if they choose to do so. 
+### Purpose
+
+The primary purpose of ReelTalk is to create an engaging and user-friendly platform where movie enthusiasts can share and discover movie reviews. This website is designed to serve as a comprehensive resource for individuals looking to gain insights into various movies through the opinions and experiences of other viewers. By leveraging the TMDB API, the site provides up-to-date information on a wide range of movies, enhancing the user's ability to search for and review films.
+
+#### Why The Site is Needed
+
+- Centralized community for movie enthusiasts - there is a need for a dedicated space that brings together a community of movie lovers
+- User-generated content - ReelTalk represents the reviews of everyday moviegoers offering a diverse range of perspectives. Existing sites often rely on professional critics.
+- Accessibility and ease of use - some existing sites can be overwhelming or difficult to navigate. ReelTalk is designed with a user-friendly interface that makes it easy for anyone to search for movies, read reviews and leave their own.
+- Customization and personalization - ReelTalk allows the user to manage their reviews. 
+
+#### Security Features
+
+- Authentication and Authorization - Users can register and login with password hashing to protect user credentials. Users can only modify or delete their own reviews.
+
+#### Why ReelTalk?
+
+- Leveraging the TMDB API - By using TMDB users have access to a vast and up-to-date database of movies.
+- Tailored Experience - Giving the user the ability to view their review history. Delete and update reviews provides a more personalized approach in comparison to similar platforms.
+
 
 #### Target Audience
 
-The target audience for ReelTalk are movie lovers who like to review movies and read other people's reviews. 
+- Movie Enthusiasts: Individuals who love watching movies and are interested in sharing their opinions and reading reviews from like-minded people.
+- General Audience: People who want to read reviews before deciding to watch a movie.
+- Critics and Bloggers: Professional or amateur movie critics and bloggers looking for a platform to publish their reviews and engage with a wider audience.
 
 ### User Stories
 
