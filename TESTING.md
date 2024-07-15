@@ -32,6 +32,8 @@ Testing was continuous throughout the website build. I used Chrome developer too
 
 W3C validator was used to validate the HTML on all pages of the website. It was also used to validate CSS in the style.css file.
 
+- All pages pass the W3C validator.
+
 
 - [Home Page](reeltalk/static/documents/w3-homepage.png)
 - [Login Page](reeltalk/static/documents/w3-login.png)
@@ -55,10 +57,14 @@ W3C validator was used to validate the HTML on all pages of the website. It was 
 
 - [Script.js](reeltalk/static/documents/jshint-script.js.png)
 
+- All pages pass the JSHint validator.
+
 
 ### Lighthouse Testing
 
 I took the opportunity to utilize Lighthouse within Chrome Developer Tools. This allowed me to test for performance, accessibility, best practices and the SEO (search engine optimization) of the website.
+
+- All pages pass Googles lighthouse tests for Desktop and Mobile.
 
 #### Desktop Testing
 
@@ -167,6 +173,8 @@ I took the opportunity to utilize Lighthouse within Chrome Developer Tools. This
 <details>
 <summary>Wave Testing Screen Shots</summary>
 
+- All pages pass the Wave validator.
+
   #### Home Page
 
 ![Home Page](reeltalk/static/documents/wave-home-page.png)
@@ -218,6 +226,10 @@ I took the opportunity to utilize Lighthouse within Chrome Developer Tools. This
 </details>
 
 ### CI Python Linter
+
+- All Python code is consistent in style and conforms to the PEP8 style guide. The CI Python Linter has been used to check that the code conforms to PEP8 standard. This includes indentation, comments, trailing white spaces, maximum line length etc. 
+
+All pages have passed the CI Python Linter.
 
 ### __init__.py
 
