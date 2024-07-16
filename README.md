@@ -65,12 +65,12 @@ The primary purpose of ReelTalk is to create an engaging and user-friendly platf
 
 #### Security Features
 
-- Authentication and Authorization - Users can register and login with password hashing to protect user credentials. Users can only modify or delete their own reviews.
+- Authentication and Authorization - Users can register and login with password hashing to protect user credentials. Users can only modify or delete their own reviews. If another user tries to access a different users review area via a URL they are met with a 403 page.s
 
 #### Why ReelTalk?
 
-- Leveraging the TMDB API - By using TMDB users have access to a vast and up-to-date database of movies.
-- Tailored Experience - Giving the user the ability to view their review history. Delete and update reviews provides a more personalized approach in comparison to similar platforms.
+- TMDB API - By using TMDB users have access to a vast and up-to-date database of movies.
+- Tailored Experience - Giving the user the ability to view their review history. Delete and update reviews, provides a more personalized approach in comparison to similar platforms.
 
 
 #### Target Audience
