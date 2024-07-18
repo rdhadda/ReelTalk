@@ -77,7 +77,7 @@ The primary purpose of ReelTalk is to create an engaging and user-friendly platf
 
 - Movie Enthusiasts: Individuals who love watching movies and are interested in sharing their opinions and reading reviews from like-minded people.
 - General Audience: People who want to read reviews before deciding to watch a movie.
-- Critics and Bloggers: Professional or amateur movie critics and bloggers looking for a platform to publish their reviews and engage with a wider audience.
+
 
 ### User Stories
 
