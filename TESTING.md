@@ -265,6 +265,12 @@ All pages have passed the CI Python Linter.
 |Create, edit and delete my own reviews. | A user has access to all of their reviews on the 'My Reviews Page' from here the user can edit and delete any existing reviews. They can create a new review by clicking on the 'Review A Movie' link. This allows a user to search for a movie and create a review.  |
 |Read other users reviews. | All reviews for all reviewed movies are displayed on the 'Movie Review' page. |
 
+### User Testing Summary
+
+On the whole ReelTalk is an engaging, user-friendly website that sucessfully meets the needs of movie lovers by providing a centralized community for sharing and discovering movie reviews. ReelTalk offers a comprehensive, up-to-date movie database by leveraging the TMDB database, this enhances the user's ability to search for and review films. The website focuses on user-generated content, providing a perspective from everyday moviegoers rather than relying on professional critics. Users can easily navigate the site, manage their reviews and enjoy a personalised experience, thanks to the websites accessible and intuitive interface. Security features such as authentications and authorization ensure the users can safely manage their own content. 
+
+Whether you're a first time visitor, returning user or a frequent reviewer, ReelTalk offers a tailored experience that meets the needs of it's target audience. Which I believe makes the website a success and meets all of the initial goals set prior to creating the website. 
+
 ### Full Testing
 
 Full testing was performed on the following devices:
@@ -402,3 +408,4 @@ Each device tested the site using the following browsers:
 | # | Bug | 
 | :--- | :--- | 
 | 1 | The release date for each movie returned from the API is in US format. The date is used on each of the movie cards across the website. Eventually I would like to rectify the issue by converting the dates to UK format to match the review created date |
+
